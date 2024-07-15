@@ -1,8 +1,25 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Poppins, Urbanist } from "next/font/google";
 import "./globals.css";
+import { Providers } from "./providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "600", "500", "700"],
+  variable: "--font-inter",
+});
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-urbanist",
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "600", "500", "700"],
+  variable: "--font-inter",
+});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +32,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang='en'>
+      <body className={`${inter.variable}  ${urbanist.variable} ${poppins.variable}`}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
