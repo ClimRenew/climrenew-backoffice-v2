@@ -135,7 +135,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             ))}
            
            
-            <Flex
+            {/* <Flex
               cursor={"pointer"}
               gap="14px"
               borderRadius={"5px"}
@@ -167,7 +167,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
               >
                 LogOut
               </Text>
-            </Flex>
+            </Flex> */}
           </Flex>
 
           {/* LOGOUT CONDITION */}

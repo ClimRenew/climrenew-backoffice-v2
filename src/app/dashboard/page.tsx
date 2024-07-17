@@ -5,7 +5,7 @@ const Dashboard = () => {
     return (
         <>
         <DashboardLayout>
-            <Header/>
+            <Header pageHeading={"Dashboard"}/>
         </DashboardLayout>
         </>
     )
