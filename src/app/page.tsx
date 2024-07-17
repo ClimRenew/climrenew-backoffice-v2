@@ -1,3 +1,4 @@
+'use client'
 import {
   Box,
   Flex,
@@ -10,12 +11,14 @@ import {
   Image,
   Center,
 } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
+  const router = useRouter();
   return (
     <Flex height="100vh">
       <Box
-        flex="1"
+        // flex="1"
         display="flex"
         alignItems="center"
         justifyContent="center"
@@ -68,7 +71,13 @@ const LoginPage = () => {
               >
                 Email
               </FormLabel>
-              <Input type="email" borderRadius={'8px'} width={'405px'} border='1px solid #D9D9D9' height={'48px'}/>
+              <Input
+                type="email"
+                borderRadius={"8px"}
+                width={"405px"}
+                border="1px solid #D9D9D9"
+                height={"48px"}
+              />
             </FormControl>
             <FormControl id="password" mb="4">
               <FormLabel
@@ -80,17 +89,45 @@ const LoginPage = () => {
               >
                 Password
               </FormLabel>
-              <Input type="password" borderRadius={'8px'} width={'405px'} border='1px solid #D9D9D9' height={'48px'}/>
+              <Input
+                type="password"
+                borderRadius={"8px"}
+                width={"405px"}
+                border="1px solid #D9D9D9"
+                height={"48px"}
+              />
             </FormControl>
             <Flex justifyContent="space-between" mb="4">
-              <Checkbox color="#8E8E8E" fontWeight="400" className="poppins" fontSize='14px'>
+              <Checkbox
+                color="#8E8E8E"
+                border="1px solid #E3E3E3"
+                fontWeight="400"
+                className="poppins"
+                fontSize="14px"
+              >
                 Remember me
               </Checkbox>
-              <Text color="#D50100" cursor="pointer" fontSize={'14px'} fontWeight={'400'} className='poppins'>
+              <Text
+                color="#D50100"
+                cursor="pointer"
+                fontSize={"14px"}
+                fontWeight={"400"}
+                className="poppins"
+              >
                 Forgot password?
               </Text>
             </Flex>
-            <Button bg='#22C55E' color={'white'} width="405px" borderRadius={'15px'} height={'42px'} mt='4' className="inter" fontWeight={'600'}>
+            <Button
+              bg="#22C55E"
+              color={"white"}
+              width="405px"
+              borderRadius={"15px"}
+              height={"42px"}
+              mt="4"
+              className="inter"
+              fontWeight={"600"}
+              onClick={()=> router.push('/dashboard')}
+            >
               Sign in
             </Button>
           </form>
