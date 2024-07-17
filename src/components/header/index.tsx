@@ -17,7 +17,7 @@ const Header:React.FC <HeaderProps>= ({pageHeading}) => {
   return (
     <Flex
      
-      px={"12"}
+      px={"8"}
       bg={"white"}
       boxShadow={'sm'}
       flexDirection={'row'}
