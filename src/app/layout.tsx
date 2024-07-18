@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Poppins, Urbanist } from "next/font/google";
+import { Inter, Montserrat, Poppins, Urbanist } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 
@@ -19,6 +19,11 @@ const poppins = Poppins({
   weight: ["400", "600", "500", "700"],
   variable: "--font-poppins",
 });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "600", "500", "700"],
+  variable: "--font-montserrat",
+});
 
 
 export const metadata: Metadata = {
@@ -33,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${inter.variable}  ${urbanist.variable} ${poppins.variable}`}>
+      <body className={`${inter.variable}  ${urbanist.variable} ${poppins.variable} ${montserrat.variable}`}>
         <Providers>{children}</Providers>
       </body>
     </html>
