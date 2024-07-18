@@ -20,7 +20,7 @@ export const SideBarData = [
     title: "Services",
     activeImage: "/assets/services-white.png",
     inActiveImage: "/assets/services.png",
-    route: "/vendors",
+    route: "/services",
   },
   {
     id: 4,
