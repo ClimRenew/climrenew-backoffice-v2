@@ -1,6 +1,8 @@
 'use client';
-import { Box, Text,Flex, useDisclosure } from "@chakra-ui/react";
+import { Box, Text,Flex, useDisclosure, Grid } from "@chakra-ui/react";
 import Image from "next/image";
+import AddServiceModal from "../addServiceModal";
+import ServiceCard from "../serviceCard";
 
 const ServiceContent = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -37,6 +39,35 @@ const ServiceContent = () => {
           Add New Service
         </Text>
       </Box>
+      <Grid
+          templateColumns={"repeat(2,1fr)"}
+          gap="8"
+          pl="8"
+          pr={'4'}
+          pt={"12"}
+          pb={"12"}
+        >
+          <ServiceCard
+            name={"Renewable Energy Consulting"}
+            img={"/assets/recycle.png"}
+            content="We offer specialized guidance, analysis, and assistance to clients across different facets of renewable energy advancement, deployment, and enhancement, aiming to assist them in attaining a more sustainable output through a compre..."
+          />
+          <ServiceCard
+            name={"Sustainable Agriculture"}
+            img="/assets/agric.png"
+            content="We help play the role of facilitators, educators, and strategists in promoting sustainable agriculture practices, fostering resilience, and contributing to the transition towards a more sustainable and equitable food system...."
+          />
+          <ServiceCard
+            name={"Plastic Waste Consulting"}
+            img="/assets/plastic.png"
+            content="We play a role in helping organizations and communities address the complex challenges associated with plastic pollution by providing expertise, guidance, and innovative solutions to promote a more sustainable and circular approac..."
+          />
+        </Grid>
+      <AddServiceModal
+        isOpen={isOpen}
+        onClose={onClose}
+        onOpen={onOpen}
+      />
         </Box>
         </>
     )
