@@ -13,7 +13,7 @@ export const SideBarData = [
     title: "Partners",
     activeImage: "/assets/partner-white.png",
     inActiveImage: "/assets/partnership.png",
-    route: "/users",
+    route: "/partners",
   },
   {
     id: 3,
