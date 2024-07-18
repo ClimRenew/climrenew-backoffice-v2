@@ -10,6 +10,7 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import ProfileMenu from "../profileMenu";
 interface HeaderProps {
   pageHeading: string;
 }
@@ -69,39 +70,7 @@ const Header:React.FC <HeaderProps>= ({pageHeading}) => {
           <Center height="50px">
             <Divider orientation="vertical" />
           </Center>
-          <Flex gap={"2"}>
-            <Box>
-              <Image
-                src="/assets/memoji.png"
-                width={40}
-                height={40}
-                quality={100}
-                alt="img"
-              />
-            </Box>
-            <Box>
-              <Text
-                className="inter"
-                fontWeight={"500"}
-                fontSize={"16px"}
-                color={'#303030'}
-
-                lineHeight={"19.36px"}
-              >
-                Adeniyi Tosin
-              </Text>
-              <Text
-                className="inter"
-                fontWeight={"400"}
-                fontSize={"14px"}
-                pt={'2'}
-                color={'#7C7C7C'}
-                lineHeight={"16.49px"}
-              >
-                Admin
-              </Text>
-            </Box>
-          </Flex>
+         <ProfileMenu/>
         </Flex>
       </Flex>
     </Flex>
