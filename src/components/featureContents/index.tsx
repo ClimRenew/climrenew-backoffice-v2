@@ -1,5 +1,6 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text,Flex } from "@chakra-ui/react";
 import Image from "next/image";
+import CompanyCard from "../companyCard";
 
 const FeatureContent = () => {
   return (
@@ -32,7 +33,19 @@ const FeatureContent = () => {
           Add New Company
         </Text>
       </Box>
-      
+      <Flex gap={'6'} pt={'12'} pr={'4'}>
+        <CompanyCard name={"Watson Institute"} logo={"/assets/image2.png"}/>
+        <CompanyCard name={"Captain Planet Foundation"} logo={"/assets/image3.png"}/>
+        <CompanyCard name={"Itech Energy Company"} logo={"/assets/image4.png"}/>
+        <CompanyCard name={"CrowdSolve"} logo={"/assets/image5.png"}/>
+
+      </Flex>
+      {/* <AddCompanyModal
+        isOpen={isOpen}
+        onClose={onClose}
+        onSave={handleSave}
+        initialData={currentCompany}
+      /> */}
     </Box>
   );
 };

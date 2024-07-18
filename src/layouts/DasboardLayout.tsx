@@ -250,7 +250,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           w={{ lg: "calc(100% - 250px)", xl: "calc(100% - 300px)" }}
           position="relative"
           minHeight="100vh"
-          bg="white"
+          bg="#F8F8F8"
           ml={{ base: "0", lg: "237px", xl: "300px" }}
           p={{ s: "10px 10px 45px", md: "15px 15px 45px", lg: "30px" }}
           direction="column"
