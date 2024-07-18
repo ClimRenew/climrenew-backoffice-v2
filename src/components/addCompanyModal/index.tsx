@@ -73,7 +73,7 @@ const AddCompanyModal = ({ isOpen, onOpen, onClose }: any) => {
                 <Input
                   borderRadius={"8px"}
                   className="inter"
-                  onChange={handleFileChange}
+                  // onChange={handleFileChange}
                   border='1px solid #D9D9D9'
                   width="340px"
                 />
@@ -86,6 +86,7 @@ const AddCompanyModal = ({ isOpen, onOpen, onClose }: any) => {
                 color="white"
                 className="montserrat"
                 fontSize={"16px"}
+                cursor={'pointer'}
                 borderRadius={"20px"}
                 // onClick={handleSubmit}
               >
@@ -109,6 +110,8 @@ const AddCompanyModal = ({ isOpen, onOpen, onClose }: any) => {
               className="montserrat"
               fontSize={"20px"}
               fontWeight={"600"}
+              cursor={'pointer'}
+
               borderRadius={"30px"}
             >
               Create

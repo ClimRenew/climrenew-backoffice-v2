@@ -1,8 +1,12 @@
-import { Box, Text,Flex } from "@chakra-ui/react";
+'use client'
+import { Box, Text,Flex, useDisclosure } from "@chakra-ui/react";
 import Image from "next/image";
 import CompanyCard from "../companyCard";
+import AddCompanyModal from "../addCompanyModal";
 
 const FeatureContent = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Box pl="8" pt={"12"} pb={"12"}>
       <Box
@@ -16,6 +20,7 @@ const FeatureContent = () => {
         justifyContent={"center"}
         gap={"3"}
         alignItems={"center"}
+        onClick={onOpen}
       >
         <Image
           src="/assets/plusIconWhite.png"
@@ -40,12 +45,11 @@ const FeatureContent = () => {
         <CompanyCard name={"CrowdSolve"} logo={"/assets/image5.png"}/>
 
       </Flex>
-      {/* <AddCompanyModal
+      <AddCompanyModal
         isOpen={isOpen}
         onClose={onClose}
-        onSave={handleSave}
-        initialData={currentCompany}
-      /> */}
+        onOpen={onOpen}
+      />
     </Box>
   );
 };
