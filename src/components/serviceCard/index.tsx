@@ -13,23 +13,28 @@ import {
   } from "@chakra-ui/react";
   import { FiMoreHorizontal, FiMoreVertical } from "react-icons/fi";
 import AddServiceModal from "../addServiceModal";
+import { useRouter } from "next/navigation";
 
   interface ServiceCardProps {
     name: string;
     content: string;
     img: string;
+    
   }
 
-const ServiceCard:React.FC<ServiceCardProps> = ({name,img,content}) => {
+const ServiceCard:React.FC<ServiceCardProps> = ({name,img,content,}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const router = useRouter();
+  const handleOpen = ({id}:any) => {
+    router.push(`/services/${id}`)
+  }
 return (
     <>
      <Box
       borderRadius="22px"
       p={4}
       // width={"511px"}
-      
+     
       height={"458px"}
       bg="#FFFFFF"
     >
@@ -74,7 +79,7 @@ return (
         >
           {content}
         </Text> 
-        <Box pt={'4'} display={'flex'} alignItems={'center'} gap={'4'}>
+        <Box pt={'4'} display={'flex'} alignItems={'center'} gap={'4'} >
           <Text  color={'#22C55E'} className='inter' fontWeight={'500'} fontSize={'20px'}>Features</Text>
           <Image src='/assets/green-foward-icon.png' alt='icon'/>
         </Box>
