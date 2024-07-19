@@ -43,40 +43,40 @@ export const SideBarData = [
     inActiveImage: "/assets/newsletter.png",
     route: "/newsletter",
   },
-    {
-      id: 7,
-      title: "Campaigns",
-      activeImage: "/assets/campaigns-white.png",
+  {
+    id: 7,
+    title: "Campaigns",
+    activeImage: "/assets/campaigns-white.png",
 
-      inActiveImage: "/assets/campaign.png",
+    inActiveImage: "/assets/campaign.png",
 
-      route: "/settings",
-    },
-    {
-      id: 8,
-      title: "Tickets",
-      activeImage: "/assets/tickets-white.png",
+    route: "/campaings",
+  },
+  {
+    id: 8,
+    title: "Tickets",
+    activeImage: "/assets/tickets-white.png",
 
-      inActiveImage: "/assets/tickets.png",
+    inActiveImage: "/assets/tickets.png",
 
-      route: "/settings",
-    },
-    {
-      id: 9,
-      title: "Tickets",
-      activeImage: "/assets/settings-white.png",
+    route: "/settings",
+  },
+  {
+    id: 9,
+    title: "Tickets",
+    activeImage: "/assets/settings-white.png",
 
-      inActiveImage: "/assets/settings.png",
+    inActiveImage: "/assets/settings.png",
 
-      route: "/settings",
-    },
-    {
-      id: 10,
-      title: "More",
-      activeImage: "/assets/more-white.png",
+    route: "/settings",
+  },
+  {
+    id: 10,
+    title: "More",
+    activeImage: "/assets/more-white.png",
 
-      inActiveImage: "/assets/more.png",
+    inActiveImage: "/assets/more.png",
 
-      route: "/settings",
-    },
+    route: "/settings",
+  },
 ];

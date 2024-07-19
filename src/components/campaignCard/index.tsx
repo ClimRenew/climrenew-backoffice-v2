@@ -15,6 +15,7 @@ import { FiMoreHorizontal, FiMoreVertical } from "react-icons/fi";
 import AddServiceModal from "../addServiceModal";
 import { useRouter } from "next/navigation";
 import AddFeatureModal from "../addFeatureModal";
+import AddCampaignModal from "../addCampaignModal";
 
 interface FeatureCardProps {
   name: string;
@@ -22,7 +23,7 @@ interface FeatureCardProps {
   img: string;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ name, img, content }) => {
+const  CampaignCard: React.FC<FeatureCardProps> = ({ name, img, content }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -86,10 +87,10 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ name, img, content }) => {
             {content}
           </Text>
         </Box>
-        <AddFeatureModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
+        <AddCampaignModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
         
       </Box>
     </>
   );
 };
-export default FeatureCard;
+export default CampaignCard;
