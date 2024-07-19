@@ -14,6 +14,7 @@ import {
 import { FiMoreHorizontal, FiMoreVertical } from "react-icons/fi";
 import AddServiceModal from "../addServiceModal";
 import { useRouter } from "next/navigation";
+import AddFeatureModal from "../addFeatureModal";
 
 interface FeatureCardProps {
   name: string;
@@ -83,7 +84,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ name, img, content }) => {
             {content}
           </Text>
         </Box>
-        <AddServiceModal isOpen={isOpen} onClose={onClose} onOpen />
+        <AddFeatureModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
+        
       </Box>
     </>
   );
