@@ -54,6 +54,15 @@ export const SideBarData = [
   },
   {
     id: 8,
+    title: "Posts",
+    activeImage: "/assets/post-white.png",
+
+    inActiveImage: "/assets/post.png",
+
+    route: "/posts",
+  },
+  {
+    id: 9,
     title: "Tickets",
     activeImage: "/assets/tickets-white.png",
 
@@ -62,7 +71,7 @@ export const SideBarData = [
     route: "/settings",
   },
   {
-    id: 9,
+    id: 10,
     title: "Tickets",
     activeImage: "/assets/settings-white.png",
 
@@ -71,7 +80,7 @@ export const SideBarData = [
     route: "/settings",
   },
   {
-    id: 10,
+    id: 11,
     title: "More",
     activeImage: "/assets/more-white.png",
 
