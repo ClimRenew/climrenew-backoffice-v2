@@ -2,8 +2,11 @@
 import { Box, Text, Flex, useDisclosure, Grid, Link } from "@chakra-ui/react";
 import Image from "next/image";
 import FAQCard from "../faqCard";
+import AddFaqModal from "../addFaqModal";
 
 const FAQsContent = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <>
       <Box pl="8" pt={"12"} pb={"12"}>
@@ -18,7 +21,7 @@ const FAQsContent = () => {
           justifyContent={"center"}
           gap={"3"}
           alignItems={"center"}
-          //   onClick={onOpen}
+          onClick={onOpen}
         >
           <Image
             src="/assets/plusIconWhite.png"
@@ -83,6 +86,7 @@ const FAQsContent = () => {
             }
           />
         </Grid>
+        <AddFaqModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
       </Box>
     </>
   );

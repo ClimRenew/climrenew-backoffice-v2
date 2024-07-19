@@ -12,6 +12,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { FiMoreHorizontal, FiMoreVertical } from "react-icons/fi";
+import AddFaqModal from "../addFaqModal";
 
 interface FAQCardProps {
   name: string;
@@ -67,6 +68,8 @@ const FAQCard: React.FC<FAQCardProps> = ({ name, content }) => {
         >
           {content}
         </Text>
+        <AddFaqModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
+
       </Box>
     </>
   );
