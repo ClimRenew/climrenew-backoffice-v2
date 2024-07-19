@@ -41,7 +41,7 @@ export const SideBarData = [
     title: "Newsletter",
     activeImage: "/assets/newsletter-white.png",
     inActiveImage: "/assets/newsletter.png",
-    route: "/order",
+    route: "/newsletter",
   },
     {
       id: 7,
