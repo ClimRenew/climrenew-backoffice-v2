@@ -2,8 +2,11 @@
 import { Box, Text, Flex, useDisclosure, Grid, Link } from "@chakra-ui/react";
 import Image from "next/image";
 import FeatureCard from "../featureCard";
+import AddActivityModal from "../addActivityModal";
 
 const ActivityContent = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <>
       <Box pl="8" pt={"12"} pb={"12"}>
@@ -18,7 +21,7 @@ const ActivityContent = () => {
           justifyContent={"center"}
           gap={"3"}
           alignItems={"center"}
-          //   onClick={onOpen}
+            onClick={onOpen}
         >
           <Image
             src="/assets/plusIconWhite.png"
@@ -67,6 +70,7 @@ const ActivityContent = () => {
             img={"/assets/carbon-credit.png"}
           />
         </Grid>
+        <AddActivityModal isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
       </Box>
     </>
   );

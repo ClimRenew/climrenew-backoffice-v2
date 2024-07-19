@@ -12,6 +12,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { FiMoreHorizontal, FiMoreVertical } from "react-icons/fi";
+import AddActivityModal from "../addActivityModal";
 
 interface ActivityCardProps {
   name: string;
@@ -79,6 +80,8 @@ const ActivityCard: React.FC<ActivityCardProps> = ({name,content,img}) => {
             {content}
           </Text>
         </Box>
+        <AddActivityModal isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
+
       </Box>
     </>
   );
