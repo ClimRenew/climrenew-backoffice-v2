@@ -34,7 +34,7 @@ export const SideBarData = [
     title: "Activites",
     activeImage: "/assets/activity-white.png",
     inActiveImage: "/assets/activity.png",
-    route: "/transactions",
+    route: "/activity",
   },
   {
     id: 6,
