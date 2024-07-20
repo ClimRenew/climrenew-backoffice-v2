@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import HomeInformation from "../homeInformation";
 import ContactInformation from "../contactInformation";
+import SocialLinks from "../socialLinks";
 
 const SettingsContent = () => {
   return (
@@ -74,7 +75,9 @@ const SettingsContent = () => {
               <ContactInformation />
             </TabPanel>
 
-            <TabPanel>{/* Social Links Form Fields */}</TabPanel>
+            <TabPanel>
+              <SocialLinks/>
+            </TabPanel>
           </TabPanels>
         </Tabs>
       </Box>
