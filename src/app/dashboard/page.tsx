@@ -12,7 +12,9 @@ const Dashboard = () => {
       <DashboardLayout>
         <Header pageHeading={"Dashboard"} />
         <Box pl="8" pt={"12"} pb={'12'}>
-          <Grid gap={"4"} templateColumns={"repeat(4, 1fr)"}>
+          <Grid gap={"4"} templateColumns={"repeat(4, 1fr)"} 
+      width={"260px"}
+      >
             <AdminCard title={"Admins"} value={"2"} />
             <AdminCard title={"Pending Tickets"} value={"4"} />
             <AdminCard title={"Total Tickets"} value={"3"} />
@@ -22,7 +24,9 @@ const Dashboard = () => {
             <AdminCard title={"Campaigns"} value={"4"} />
             <AdminCard title={"Services"} value={"3"} />
           </Grid>
-          <Grid gap={"4"} templateColumns={"repeat(3, 1fr)"} mt={'8'}>
+          <Grid gap={"4"} templateColumns={"repeat(3, 1fr)"} mt={'8'} 
+      width="350px"
+      >
           <SubscriberCard title="Subscribers" data={data} labels={labels} />
           <SubscriberCard title="Tickets" data={data} labels={labels} />
           <SubscriberCard title="Pending Invites" data={data} labels={labels} />

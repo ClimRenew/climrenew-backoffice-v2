@@ -46,8 +46,10 @@ const ServiceContent = () => {
           pr={"4"}
           pt={"12"}
           pb={"12"}
+      width={"511px"}
+
         >
-          <Link href='/services/1'>
+          <Link href='/services/1' textDecoration={'none'}>
             <ServiceCard
               name={"Renewable Energy Consulting"}
               img={"/assets/recycle.png"}

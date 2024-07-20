@@ -69,7 +69,10 @@ const FeatureInformation = () => {
             </Text>
           </Box>
         </Flex>
-        <Grid templateColumns={"repeat(3,1fr)"} gap={"8"} pt={"12"}>
+        <Grid templateColumns={"repeat(3,1fr)"} gap={"6"} pt={"12"} 
+        w="319px"
+        >
+
           <FeatureCard
             name={"Conducting Feasibility Studies"}
             content={

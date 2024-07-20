@@ -33,7 +33,7 @@ return (
      <Box
       borderRadius="22px"
       p={4}
-      // width={"511px"}
+      width={"511px"}
      
       height={"458px"}
       bg="#FFFFFF"

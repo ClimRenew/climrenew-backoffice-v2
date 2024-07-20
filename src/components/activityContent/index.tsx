@@ -1,8 +1,8 @@
 "use client";
 import { Box, Text, Flex, useDisclosure, Grid, Link } from "@chakra-ui/react";
 import Image from "next/image";
-import FeatureCard from "../featureCard";
 import AddActivityModal from "../addActivityModal";
+import ActivityCard from "../activitiesCard";
 
 const ActivityContent = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -40,29 +40,31 @@ const ActivityContent = () => {
             New Activities
           </Text>
         </Box>
-        <Grid templateColumns={"repeat(3,1fr)"} gap={"8"} pt={"12"}>
-          <FeatureCard
+        <Grid templateColumns={"repeat(3,1fr)"} gap={"6"} pt={"12"}
+        w="319px"
+        >
+          <ActivityCard
             name={"Green Consulting ?"}
             content={
               "We provide expert advice and guidance to businesses, organizations, and governments on how to operate in an environmentally responsible and sustainable manner. Our goal for green consulting is to help clients reduce their ecological footprint, minimize negative impacts on the environment, and achieve sustainability goals while maintaining profitability."
             }
             img={"/assets/green-consulting.png"}
           />
-          <FeatureCard
+          <ActivityCard
             name={"Green Certification ?"}
             content={
               "We help companies navigate the process of obtaining green certifications by assessing their company's current operations, practices, gab analysis, strategy, implementation support documentation and reporting of environmental performance to identify areas where improvements can be made to meet the criteria of the desired green certification."
             }
             img={"/assets/green-certification.png"}
           />
-          <FeatureCard
+          <ActivityCard
             name={"Climate Resilience ?"}
             content={
               "We help individuals, communities, organizations, and governments achieve climate resilience by providing expertise, guidance, and support in various in areas like Risk Assessment and Planning, Adaptation Planning and Implementation, Infrastructure Resilience and Community Engagement and Capacity Building."
             }
             img={"/assets/climate-resilience.png"}
           />
-          <FeatureCard
+          <ActivityCard
             name={"Carbon Credit ?"}
             content={
               "Consultants can assist companies in assessing carbon credits by providing expertise and guidance in areas like Identification of Carbon Reduction Opportunities, Evaluation of Carbon Offsetting Projects, Carbon Credit Market Analysis and Certification and Verification Support."

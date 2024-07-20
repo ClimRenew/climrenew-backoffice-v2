@@ -95,7 +95,7 @@ const SubscriberCard: React.FC<SubscriberCardProps> = ({
       borderRadius="lg"
       p={4}
     //   boxShadow="md"
-      width="345px"
+      width="350px"
       height="492px"
     >
       <Flex justify="space-between" align="center" mb={4}>
