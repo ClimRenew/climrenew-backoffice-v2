@@ -68,11 +68,11 @@ export const SideBarData = [
 
     inActiveImage: "/assets/tickets.png",
 
-    route: "/settings",
+    route: "/tickets",
   },
   {
     id: 10,
-    title: "Tickets",
+    title: "Settings",
     activeImage: "/assets/settings-white.png",
 
     inActiveImage: "/assets/settings.png",

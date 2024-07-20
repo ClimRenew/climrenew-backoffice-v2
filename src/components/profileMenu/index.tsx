@@ -23,6 +23,7 @@ const ProfileMenu: React.FC = () => {
       <MenuButton
         as={Button}
         rightIcon={<ChevronDownIcon />}
+        w='full'
         bg="transparent"
         _hover={{ bg: "transparent" }}
         _active={{ bg: "transparent" }}
@@ -38,7 +39,7 @@ const ProfileMenu: React.FC = () => {
               alt="img"
             />
           </Box>
-          <Box>
+          <Box flexDirection={'column'} display={'flex'} alignItems={'start'} justifyContent={'start'}>
             <Text
               className="inter"
               fontWeight={"500"}

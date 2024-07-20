@@ -100,7 +100,7 @@ const LoginPage = () => {
             <Flex justifyContent="space-between" mb="4">
               <Checkbox
                 color="#8E8E8E"
-                border="1px solid #E3E3E3"
+                // border="1px solid #E3E3E3"
                 fontWeight="400"
                 className="poppins"
                 fontSize="14px"
