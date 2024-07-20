@@ -38,7 +38,7 @@ const FeatureContent = () => {
           Add New Company
         </Text>
       </Box>
-      <Flex gap={"4"} pt={"12"} pr={"4"} 
+      <Flex flexWrap='wrap' gap={"4"} pt={"12"} pr={"4"} 
       >
         <CompanyCard name={"Watson Institute"} logo={"/assets/image2.png"} />
         <CompanyCard
