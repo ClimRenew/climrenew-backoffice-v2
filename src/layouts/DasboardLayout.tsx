@@ -76,7 +76,11 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         {/* LEFT CONTAINER */}
         <Flex
           display={{ s: "none", lg: "flex" }}
-          w={isCollapsed ? "120px" : { lg: "220px", xl: "300px" }}
+          w={
+            isCollapsed
+              ? { lg: "120px", xlg: "150px", xxl: "250px" }
+              : { lg: "280px", xl: "300px", xlg: "500px", xxl: "600px" }
+          }
           // px="7px"
           bg="
           #22C55E"
@@ -116,7 +120,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             // h="600px"
       width={'full'}
 
-            overflowY={"scroll"}
+            // overflowY={"scroll"}
             pb="150px"
        
           >
@@ -247,12 +251,20 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
 
         {/* RIGHT CONTAINER */}
         <Flex
-          w={{ lg: "calc(100% - 250px)", xl: "calc(100% - 300px)" }}
+          w={{
+            lg: "calc(100% - 110px)",
+            xl: "calc(100% - 200px)",
+            xxl: "calc(100% - 250px)",
+          }}
           position="relative"
           minHeight="100vh"
           bg="#F8F8F8"
-          ml={{ base: "0", lg: "237px", xl: "300px" }}
-          p={{ s: "10px 10px 45px", md: "15px 15px 45px", lg: "30px" }}
+          ml={
+            isCollapsed
+              ? { base: "0", lg: "114px", xlg: "150px", xxl: "250px" }
+              : { base: "0", lg: "280px", xlg: "310px", xxl: "400px" }
+          }
+          p={{ s: "0px 0px 45px", md: "0px 0px 45px", lg: "" }}
           direction="column"
         >
           {children}

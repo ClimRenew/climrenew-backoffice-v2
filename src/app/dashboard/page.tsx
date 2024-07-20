@@ -11,7 +11,7 @@ const Dashboard = () => {
     <>
       <DashboardLayout>
         <Header pageHeading={"Dashboard"} />
-        <Box pl="8" pt={"12"} pb={'12'}>
+        <Box pl="6" pt={"12"} pb={'12'} pr='2' overflow={'hidden'}>
           <Grid gap={"4"} templateColumns={"repeat(4, 1fr)"} 
       width={"260px"}
       >

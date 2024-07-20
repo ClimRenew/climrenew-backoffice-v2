@@ -40,8 +40,15 @@ const FAQsContent = () => {
             New Faq
           </Text>
         </Box>
-        <Grid templateColumns="repeat(2, 1fr)" gap={6} pt={"12"} 
-        width={"511px"}
+        <Grid
+          templateColumns={{
+            base: "1fr",
+            lg: "repeat(2, 1fr)",
+            xlg: "repeat(3, 1fr)",
+          }}
+          gap={{lg:6,xl:2}}
+          pt={"12"}
+          width={"511px"}
         >
           <FAQCard
             name={"What does Climrenew do ?"}

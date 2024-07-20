@@ -77,6 +77,8 @@ const LoginPage = () => {
                 width={"405px"}
                 border="1px solid #D9D9D9"
                 height={"48px"}
+                focusBorderColor="#22C55E"
+
               />
             </FormControl>
             <FormControl id="password" mb="4">
@@ -94,6 +96,7 @@ const LoginPage = () => {
                 borderRadius={"8px"}
                 width={"405px"}
                 border="1px solid #D9D9D9"
+                focusBorderColor="#22C55E"
                 height={"48px"}
               />
             </FormControl>
