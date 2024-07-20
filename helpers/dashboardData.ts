@@ -86,6 +86,6 @@ export const SideBarData = [
 
     inActiveImage: "/assets/more.png",
 
-    route: "/settings",
+    route: "/more",
   },
 ];
