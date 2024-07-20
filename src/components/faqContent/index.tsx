@@ -46,7 +46,7 @@ const FAQsContent = () => {
             lg: "repeat(2, 1fr)",
             xlg: "repeat(3, 1fr)",
           }}
-          gap={{lg:6,xl:2}}
+          gap={{lg:6,xlg:2}}
           pt={"12"}
           width={"511px"}
         >

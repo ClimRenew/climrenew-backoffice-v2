@@ -51,7 +51,7 @@ const TicketCard: React.FC<TicketCardProps> = ({
       <Box
         borderRadius="22px"
         p={4}
-        width={"531px"}
+        width={"511px"}
         // height={"150px"}
         bg="#FFFFFF"
       >

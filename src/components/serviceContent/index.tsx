@@ -41,8 +41,12 @@ const ServiceContent = () => {
           </Text>
         </Box>
         <Grid
-          templateColumns={"repeat(2,1fr)"}
-          gap="8"
+          templateColumns={{
+            base: "1fr",
+            lg: "repeat(2, 1fr)",
+            xlg: "repeat(3, 1fr)",
+          }}
+          gap={{lg:6,xlg:2}}
           pr={"4"}
           pt={"12"}
           pb={"12"}

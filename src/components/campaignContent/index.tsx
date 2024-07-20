@@ -40,7 +40,7 @@ const CampaignContent = () => {
            New Campaign
           </Text>
           </Box>
-          <Grid templateColumns={"repeat(3,1fr)"} gap={"6"} pt={"12"}
+          <Grid templateColumns={{lg:"repeat(3,1fr)",xlg:"repeat(4,1fr)"}} gap={"6"} pt={"12"}
           w='319px'>
           <CampaignCard
             name={"Save the Lagoon "}
