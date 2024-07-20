@@ -1,5 +1,5 @@
-'use client'
-import { Box, Text,Flex, useDisclosure } from "@chakra-ui/react";
+"use client";
+import { Box, Text, Flex, useDisclosure } from "@chakra-ui/react";
 import Image from "next/image";
 import CompanyCard from "../companyCard";
 import AddCompanyModal from "../addCompanyModal";
@@ -38,18 +38,19 @@ const FeatureContent = () => {
           Add New Company
         </Text>
       </Box>
-      <Flex gap={'6'} pt={'12'} pr={'4'}>
-        <CompanyCard name={"Watson Institute"} logo={"/assets/image2.png"}/>
-        <CompanyCard name={"Captain Planet Foundation"} logo={"/assets/image3.png"}/>
-        <CompanyCard name={"Itech Energy Company"} logo={"/assets/image4.png"}/>
-        <CompanyCard name={"CrowdSolve"} logo={"/assets/image5.png"}/>
-
+      <Flex gap={"6"} pt={"12"} pr={"4"}>
+        <CompanyCard name={"Watson Institute"} logo={"/assets/image2.png"} />
+        <CompanyCard
+          name={"Captain Planet Foundation"}
+          logo={"/assets/image3.png"}
+        />
+        <CompanyCard
+          name={"Itech Energy Company"}
+          logo={"/assets/image4.png"}
+        />
+        <CompanyCard name={"CrowdSolve"} logo={"/assets/image5.png"} />
       </Flex>
-      <AddCompanyModal
-        isOpen={isOpen}
-        onClose={onClose}
-        onOpen={onOpen}
-      />
+      <AddCompanyModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
     </Box>
   );
 };

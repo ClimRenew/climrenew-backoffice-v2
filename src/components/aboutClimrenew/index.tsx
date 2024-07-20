@@ -1,21 +1,21 @@
 import {
-    Box,
-    Button,
-    FormControl,
-    FormLabel,
-    Input,
-    Textarea,
-    Flex,
-  } from "@chakra-ui/react";
-  
-  interface AboutProps {
-    headingName:string;
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Textarea,
+  Flex,
+} from "@chakra-ui/react";
+
+interface AboutProps {
+  headingName: string;
 }
 
-const AboutCimrenew:React.FC<AboutProps> = ({headingName}) => {
-    return (
-        <>
-  <Box>
+const AboutCimrenew: React.FC<AboutProps> = ({ headingName }) => {
+  return (
+    <>
+      <Box>
         <FormControl id="header1" mb={4}>
           <FormLabel
             color={"#303030"}
@@ -26,7 +26,7 @@ const AboutCimrenew:React.FC<AboutProps> = ({headingName}) => {
             pb={"2"}
             lineHeight={"31.47px"}
           >
-           {headingName}
+            {headingName}
           </FormLabel>
         </FormControl>
 
@@ -52,46 +52,45 @@ const AboutCimrenew:React.FC<AboutProps> = ({headingName}) => {
             />
           </FormControl>
 
-         
-          <FormControl id="image" flex='1'>
-          <FormLabel
-            color={"#232323"}
-            fontSize={"16px"}
-            className="inter"
-            fontWeight={"500"}
-            lineHeight={"30px"}
-          >
-            Image
-          </FormLabel>
-          <Flex justifyContent={"start"} gap={"3"} alignItems={"center"}>
-            <Input
-              bg="white"
-              focusBorderColor="#22C55E"
-              border="1px solid #D9D9D9"
-              h={"48px"}
-              borderRadius={"8px"}
-            //   width="420px"
-            />
-            <Button
-              w={"100px"}
-              display={"flex"}
-              alignItems={"center"}
-              h="38px"
-              bg="#22C55E"
-              color="white"
-              className="montserrat"
+          <FormControl id="image" flex="1">
+            <FormLabel
+              color={"#232323"}
               fontSize={"16px"}
-              cursor={"pointer"}
-              borderRadius={"20px"}
-              // onClick={handleSubmit}
+              className="inter"
+              fontWeight={"500"}
+              lineHeight={"30px"}
             >
-              Browse
-            </Button>
-          </Flex>
-        </FormControl>
+              Image
+            </FormLabel>
+            <Flex justifyContent={"start"} gap={"3"} alignItems={"center"}>
+              <Input
+                bg="white"
+                focusBorderColor="#22C55E"
+                border="1px solid #D9D9D9"
+                h={"48px"}
+                borderRadius={"8px"}
+                //   width="420px"
+              />
+              <Button
+                w={"100px"}
+                display={"flex"}
+                alignItems={"center"}
+                h="38px"
+                bg="#22C55E"
+                color="white"
+                className="montserrat"
+                fontSize={"16px"}
+                cursor={"pointer"}
+                borderRadius={"20px"}
+                // onClick={handleSubmit}
+              >
+                Browse
+              </Button>
+            </Flex>
+          </FormControl>
         </Box>
         <Flex gap={6} mb={4}>
-          <FormControl id="tagline" width='520px'>
+          <FormControl id="tagline" width="520px">
             <FormLabel
               color="#232323"
               className="inter"
@@ -114,11 +113,7 @@ const AboutCimrenew:React.FC<AboutProps> = ({headingName}) => {
               placeholder="Our commitment lies in facilitating businesses, NGOs, and corporations in achieving their ESG goals by connecting their teams with green technology solution providers."
             />
           </FormControl>
-
-          
         </Flex>
-
-       
 
         <Button
           w={"243px"}
@@ -135,7 +130,7 @@ const AboutCimrenew:React.FC<AboutProps> = ({headingName}) => {
           Update
         </Button>
       </Box>
-        </>
-    )
-}
+    </>
+  );
+};
 export default AboutCimrenew;
