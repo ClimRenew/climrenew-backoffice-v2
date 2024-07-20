@@ -1,4 +1,5 @@
 import Header from "@/components/header";
+import MoreSection from "@/components/moreSection";
 import DashboardLayout from "@/layouts/DasboardLayout";
 
 const More = () => {
@@ -6,6 +7,7 @@ const More = () => {
         <>
         <DashboardLayout>
             <Header pageHeading={"More"}/>
+            <MoreSection/>
         </DashboardLayout>
         </>
     )
