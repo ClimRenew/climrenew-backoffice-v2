@@ -10,6 +10,7 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import HomeInformation from "../homeInformation";
+import ContactInformation from "../contactInformation";
 
 const SettingsContent = () => {
   return (
@@ -69,7 +70,9 @@ const SettingsContent = () => {
 
             </TabPanel>
 
-            <TabPanel>{/* Contact Information Form Fields */}</TabPanel>
+            <TabPanel>
+              <ContactInformation />
+            </TabPanel>
 
             <TabPanel>{/* Social Links Form Fields */}</TabPanel>
           </TabPanels>
