@@ -20,9 +20,8 @@ interface PostCardProps {
     img:string;
   }
 
-const PostCard :React.FC<PostCardProps>= ({ name, content,img }) => {
+const PostCard :React.FC<PostCardProps>= ({ name, content,img,}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
     return (
         <>
          <Box
@@ -30,6 +29,7 @@ const PostCard :React.FC<PostCardProps>= ({ name, content,img }) => {
         p={4}
         width={"511px"}
         // height={"150px"}
+        h='100%'
         bg="#FFFFFF"
       >
         <Flex justifyContent={"space-between"} alignContent={"center"}>
