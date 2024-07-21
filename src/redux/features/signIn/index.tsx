@@ -2,7 +2,7 @@ import { login, AuthResponse } from "@/redux/services/authApi.service";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 interface AuthState {
-  token: string | null | undefined;
+  token: string | null | undefined; 
   loading: boolean;
   error: string | null;
 }
@@ -44,7 +44,7 @@ const authSlice = createSlice({
       })
       .addCase(authenticateUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.token = action.payload.token;
+        state.token = action.payload.data.token;
       })
       .addCase(authenticateUser.rejected, (state, action) => {
         state.loading = false;
@@ -54,3 +54,4 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+
