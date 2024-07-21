@@ -8,10 +8,13 @@ export async function apiRequest<T>(url: string, options: ApiOptions = {}): Prom
   const token = localStorage.getItem("token");
 
   const defaultHeaders: Record<string, string> = {
-    "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
     ...options.headers,
   };
+
+  if (!(options.body instanceof FormData)) {
+    defaultHeaders["Content-Type"] = "application/json";
+  }
 
   const defaultOptions: ApiOptions = {
     ...options,
@@ -35,3 +38,4 @@ export async function apiRequest<T>(url: string, options: ApiOptions = {}): Prom
 
   return response.json();
 }
+

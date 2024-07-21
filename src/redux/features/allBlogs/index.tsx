@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { Blog, fetchBlogs } from "@/redux/services/blogApi.service";
+import { Blog, fetchBlogs, createBlog } from "@/redux/services/blogApi.service";
 
 interface BlogState {
   blogs: Blog[];
@@ -32,6 +32,25 @@ export const getBlogs = createAsyncThunk<
   }
 );
 
+export const createPost = createAsyncThunk<
+  Blog,
+  FormData,
+  { rejectValue: string }
+>(
+  "blogs/createPost",
+  async (formData, { rejectWithValue }) => {
+    try {
+      const response = await createBlog(formData);
+      if (!response.status) {
+        return rejectWithValue(response.message);
+      }
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error instanceof Error ? error.message : "An unknown error occurred");
+    }
+  }
+);
+
 const blogSlice = createSlice({
   name: "blogs",
   initialState,
@@ -47,6 +66,18 @@ const blogSlice = createSlice({
         state.blogs = action.payload;
       })
       .addCase(getBlogs.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string;
+      })
+      .addCase(createPost.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(createPost.fulfilled, (state, action) => {
+        state.loading = false;
+        state.blogs.push(action.payload);
+      })
+      .addCase(createPost.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as string;
       });

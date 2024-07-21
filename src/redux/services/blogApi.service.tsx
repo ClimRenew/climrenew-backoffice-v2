@@ -9,7 +9,6 @@ export interface Blog {
     name: string;
     email: string;
   };
-  // Add other relevant fields
 }
 
 export interface BlogResponse {
@@ -29,5 +28,13 @@ export async function fetchBlogs(): Promise<BlogResponse> {
   const url = `https://v2.climrenew.com/api/v2/admin/blog/list`;
   return await apiRequest<BlogResponse>(url, {
     method: 'GET',
+  });
+}
+
+export async function createBlog(formData: FormData): Promise<BlogResponse> {
+  const url = `https://v2.climrenew.com/api/v2/admin/blog/create`;
+  return await apiRequest<BlogResponse>(url, {
+    method: 'POST',
+    body: formData,
   });
 }
