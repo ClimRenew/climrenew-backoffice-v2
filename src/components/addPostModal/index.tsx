@@ -13,7 +13,7 @@ import {
   Flex,
   Textarea,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import { useAppDispatch } from "@/redux/store";
 import { createPost } from "@/redux/features/allBlogs";
 
@@ -23,7 +23,7 @@ const AddPostModal = ({ isOpen, onOpen, onClose }:any) => {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
 
-  const handleFileChange = (e) => {
+  const handleFileChange = (e: any) => {
     setImage(e.target.files[0]);
   };
 
@@ -31,12 +31,16 @@ const AddPostModal = ({ isOpen, onOpen, onClose }:any) => {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("body", description);
-    formData.append("image", image);
-
+  
+    // Only append the image if it is not null
+    if (image) {
+      formData.append("image", image);
+    }
+  
     dispatch(createPost(formData));
     onClose();
   };
-
+  
   return (
     <Modal isOpen={isOpen} onClose={onClose} size={"xl"}>
       <ModalOverlay />

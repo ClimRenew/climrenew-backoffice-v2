@@ -1,7 +1,7 @@
 import { apiRequest } from "../helper/apiHelper";
 
 export interface Blog {
-  image: string;
+  image: any;
   id: string;
   title: string;
   body: string;
