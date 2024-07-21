@@ -1,9 +1,8 @@
-import { login } from "@/redux/services/authApi.service";
+import { login, AuthResponse } from "@/redux/services/authApi.service";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ReactNode } from "react";
 
 interface AuthState {
-  token: string | null;
+  token: string | null | undefined;
   loading: boolean;
   error: string | null;
 }
@@ -15,17 +14,18 @@ const initialState: AuthState = {
 };
 
 export const authenticateUser = createAsyncThunk<
-  {
-    status: any;
-    message: ReactNode; token: string 
-},
+  AuthResponse,
   { email: string; password: string },
   { rejectValue: string }
 >(
   "auth/login",
   async (credentials, { rejectWithValue }) => {
     try {
-      return await login(credentials);
+      const response = await login(credentials);
+      if (!response.status) {
+        return rejectWithValue(response.message);
+      }
+      return response;
     } catch (error) {
       return rejectWithValue(error instanceof Error ? error.message : "An unknown error occurred");
     }
