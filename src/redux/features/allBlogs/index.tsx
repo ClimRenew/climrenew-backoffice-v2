@@ -44,13 +44,12 @@ export const createPost = createAsyncThunk<
       if (!response.status) {
         return rejectWithValue(response.message);
       }
-      return response.data.posts[0]; 
+      return response.data.post; // Adjusted to match the correct response structure
     } catch (error) {
       return rejectWithValue(error instanceof Error ? error.message : "An unknown error occurred");
     }
   }
 );
-
 
 const blogSlice = createSlice({
   name: "blogs",

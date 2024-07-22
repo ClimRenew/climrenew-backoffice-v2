@@ -1,5 +1,13 @@
-'use client'
-import { Box, Text, Flex, useDisclosure, Grid, Link, Spinner } from "@chakra-ui/react";
+"use client";
+import {
+  Box,
+  Text,
+  Flex,
+  useDisclosure,
+  Grid,
+  Link,
+  Spinner,
+} from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/store";
 import { getBlogs } from "@/redux/features/allBlogs";
@@ -16,11 +24,7 @@ const PostContent = () => {
     dispatch(getBlogs());
   }, [dispatch]);
 
-  if (loading) {
-    return <Spinner />;
-  }
-
-  console.log(blogs); // Debugging line to check blogs
+  
 
   return (
     <>
@@ -55,25 +59,33 @@ const PostContent = () => {
             Create Post
           </Text>
         </Box>
-        <Grid
-          templateColumns={{
-            base: "1fr",
-            lg: "repeat(2, 1fr)",
-            xlg: "repeat(3, 1fr)",
-          }}
-          gap={{ lg: 4, xlg: 2 }}
-          pt={"12"}
-          width={"511px"}
-        >
-          {Array.isArray(blogs) && blogs.map((blog) => (
-            <PostCard
-              key={blog.id}
-              name={blog.title}
-              content={blog.body}
-              img={blog.image}
-            />
-          ))}
-        </Grid>
+        {loading ? (
+          <Flex justifyContent={"center"} alignItems={"center"} mt={"4%"}>
+            {" "}
+            <Spinner size="xl" color="#22C55E" thickness='4px'/>
+          </Flex>
+        ) : (
+          <Grid
+            templateColumns={{
+              base: "1fr",
+              lg: "repeat(2, 1fr)",
+              xlg: "repeat(3, 1fr)",
+            }}
+            gap={{ lg: 4, xlg: 2 }}
+            pt={"12"}
+            width={"511px"}
+          >
+            {Array.isArray(blogs) &&
+              blogs.map((blog) => (
+                <PostCard
+                  key={blog.id}
+                  name={blog.title}
+                  content={blog.body}
+                  img={blog.image}
+                />
+              ))}
+          </Grid>
+        )}
         <AddPostModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
       </Box>
     </>

@@ -12,35 +12,59 @@ import {
   ModalOverlay,
   Flex,
   Textarea,
+  useToast,
 } from "@chakra-ui/react";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import { useAppDispatch } from "@/redux/store";
 import { createPost } from "@/redux/features/allBlogs";
 
-const AddPostModal = ({ isOpen, onOpen, onClose }:any) => {
+const AddPostModal = ({ isOpen, onOpen, onClose }: any) => {
   const dispatch = useAppDispatch();
+  const toast = useToast();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState<File | null>(null);
 
-  const handleFileChange = (e: any) => {
-    setImage(e.target.files[0]);
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setImage(e.target.files[0]);
+    }
   };
 
   const handleSubmit = async () => {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("body", description);
-  
-    // Only append the image if it is not null
+
     if (image) {
       formData.append("image", image);
     }
-  
-    dispatch(createPost(formData));
-    onClose();
+
+    try {
+      await dispatch(createPost(formData)).unwrap();
+      toast({
+        title: "Blog created.",
+        description: "Your blog has been created successfully, refresh to view",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+        position: "top-right",
+
+      });
+      onClose();
+    } catch (error) {
+      toast({
+        title: "An error occurred.",
+        description: error as string,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "top-right",
+        
+      });
+    }
   };
-  
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} size={"xl"}>
       <ModalOverlay />

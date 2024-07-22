@@ -9,12 +9,14 @@ export interface Blog {
     name: string;
     email: string;
   };
+  // post:any;
 }
 
 export interface BlogResponse {
   status: boolean;
   message: string;
   data: {
+    post: any;
     posts: Blog[];
     total: number;
     currentPage: number;
