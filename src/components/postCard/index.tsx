@@ -40,7 +40,6 @@ const PostCard: React.FC<PostCardProps> = ({ id, name, content, img }) => {
         duration: 5000,
         isClosable: true,
         position: "top-right",
-
       });
     } catch (error) {
       toast({
@@ -50,26 +49,19 @@ const PostCard: React.FC<PostCardProps> = ({ id, name, content, img }) => {
         duration: 5000,
         isClosable: true,
         position: "top-right",
-
       });
     }
   };
 
   return (
     <>
-      <Box
-        borderRadius="22px"
-        p={4}
-        width={"511px"}
-        h="100%"
-        bg="#FFFFFF"
-      >
+      <Box borderRadius="22px" p={4} width={"511px"} h="100%" bg="#FFFFFF">
         <Flex justifyContent={"space-between"} alignContent={"center"}>
           <Text
             className="inter"
             fontSize={"26px"}
             fontWeight={"500"}
-            color='#303030'
+            color="#303030"
             lineHeight={"31.47px"}
           >
             {name}
@@ -83,9 +75,31 @@ const PostCard: React.FC<PostCardProps> = ({ id, name, content, img }) => {
                 bg="#F9F9F9"
                 rightIcon={<FiMoreHorizontal />}
               ></MenuButton>
-              <MenuList>
-                <MenuItem onClick={onOpen}>Update</MenuItem>
-                <MenuItem onClick={handleDelete}>Delete</MenuItem>
+              <MenuList
+                width="89px"
+                minWidth="89px"
+                sx={{ zIndex: 1 }}
+                p={0}
+                m={0}
+                bg="#F9F9F9"
+              >
+                <Box
+                  w={"89px"}
+                  bg="#F9F9F9"
+                  color="#303030"
+                  borderRadius={"8px"}
+                  fontSize={"16px"}
+                  className="inter"
+                  fontWeight={"500"}
+                  textAlign={"center"}
+                >
+                  <Text py={"2"} cursor={"pointer"} onClick={onOpen}>
+                    Update
+                  </Text>
+                  <Text onClick={handleDelete} cursor={"pointer"} pb={"2"}>
+                    Delete
+                  </Text>
+                </Box>
               </MenuList>
             </Menu>
           </Flex>
@@ -95,7 +109,7 @@ const PostCard: React.FC<PostCardProps> = ({ id, name, content, img }) => {
           alt={`${name} img`}
           objectFit="contain"
           mx="auto"
-          py={'4'}
+          py={"4"}
         />
         <Text
           fontWeight="500"
@@ -103,12 +117,17 @@ const PostCard: React.FC<PostCardProps> = ({ id, name, content, img }) => {
           fontSize="18px"
           lineHeight={"27px"}
           className="urbanist"
-          color={'#3B3B3B'}
+          color={"#3B3B3B"}
           pt={"6"}
         >
           {content}
         </Text>
-        <UpdatePosts isOpen={isOpen} onClose={onClose} onOpen={onOpen} id={id}/>
+        <UpdatePosts
+          isOpen={isOpen}
+          onClose={onClose}
+          onOpen={onOpen}
+          id={id}
+        />
       </Box>
     </>
   );

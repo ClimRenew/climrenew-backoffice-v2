@@ -51,10 +51,32 @@ return (
               bg="#F9F9F9"
               rightIcon={<FiMoreHorizontal />}
             ></MenuButton>
-            <MenuList>
-              <MenuItem onClick={onOpen}>Update</MenuItem>
-              <MenuItem>Delete</MenuItem>
-            </MenuList>
+            <MenuList
+                width="89px"
+                minWidth="89px"
+                sx={{ zIndex: 1 }}
+                p={0}
+                m={0}
+                bg="#F9F9F9"
+              >
+                <Box
+                  w={"89px"}
+                  bg="#F9F9F9"
+                  color="#303030"
+                  borderRadius={"8px"}
+                  fontSize={"16px"}
+                  className="inter"
+                  fontWeight={"500"}
+                  textAlign={"center"}
+                >
+                  <Text py={"2"} cursor={"pointer"} onClick={onOpen}>
+                    Update
+                  </Text>
+                  <Text cursor={"pointer"} pb={"2"}>
+                    Delete
+                  </Text>
+                </Box>
+              </MenuList>
           </Menu>
         </Flex>
       </Flex>

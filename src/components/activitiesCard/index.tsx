@@ -20,7 +20,7 @@ interface ActivityCardProps {
   img: string;
 }
 
-const ActivityCard: React.FC<ActivityCardProps> = ({name,content,img}) => {
+const ActivityCard: React.FC<ActivityCardProps> = ({ name, content, img }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -34,7 +34,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({name,content,img}) => {
         boxSizing="border-box"
         m={"0"}
       >
-           <Flex justifyContent={"space-between"} alignContent={"center"}>
+        <Flex justifyContent={"space-between"} alignContent={"center"}>
           <Text
             className="inter"
             fontSize={"20px"}
@@ -52,9 +52,31 @@ const ActivityCard: React.FC<ActivityCardProps> = ({name,content,img}) => {
                 bg="#F9F9F9"
                 rightIcon={<FiMoreHorizontal />}
               ></MenuButton>
-              <MenuList>
-                <MenuItem onClick={onOpen}>Update</MenuItem>
-                <MenuItem>Delete</MenuItem>
+              <MenuList
+                width="89px"
+                minWidth="89px"
+                sx={{ zIndex: 1 }}
+                p={0}
+                m={0}
+                bg="#F9F9F9"
+              >
+                <Box
+                  w={"89px"}
+                  bg="#F9F9F9"
+                  color="#303030"
+                  borderRadius={"8px"}
+                  fontSize={"16px"}
+                  className="inter"
+                  fontWeight={"500"}
+                  textAlign={"center"}
+                >
+                  <Text py={"2"} cursor={"pointer"} onClick={onOpen}>
+                    Update
+                  </Text>
+                  <Text cursor={"pointer"} pb={"2"}>
+                    Delete
+                  </Text>
+                </Box>
               </MenuList>
             </Menu>
           </Flex>
@@ -80,8 +102,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({name,content,img}) => {
             {content}
           </Text>
         </Box>
-        <AddActivityModal isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
-
+        <AddActivityModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
       </Box>
     </>
   );

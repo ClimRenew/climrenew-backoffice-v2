@@ -108,6 +108,9 @@ import {
                   onChange={(e) => setImage(e.target.files?.[0] || null)}
                   borderRadius={"8px"}
                   className="inter"
+                  fontSize={'14px'}
+                  px={'1'}
+                  pt={'1'}
                   border="1px solid #D9D9D9"
                   width="340px"
                 />

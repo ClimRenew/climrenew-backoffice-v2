@@ -103,9 +103,12 @@ const AddPostModal = ({ isOpen, onOpen, onClose }: any) => {
                 accept="image/*"
                 onChange={handleFileChange}
                 borderRadius={"8px"}
+                fontSize={'14px'}
+                px={'1'}
+                pt={'1'}
                 className="inter"
                 border="1px solid #D9D9D9"
-                width="340px"
+                // width="340px"
               />
             </Flex>
           </FormControl>
