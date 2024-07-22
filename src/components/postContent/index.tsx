@@ -65,15 +65,16 @@ const PostContent = () => {
             <Spinner size="xl" color="#22C55E" thickness='4px'/>
           </Flex>
         ) : (
-          <Grid
-            templateColumns={{
-              base: "1fr",
-              lg: "repeat(2, 1fr)",
-              xlg: "repeat(3, 1fr)",
-            }}
-            gap={{ lg: 4, xlg: 2 }}
+          <Flex
+            // templateColumns={{
+            //   base: "1fr",
+            //   lg: "repeat(2, 1fr)",
+            //   xlg: "repeat(3, 1fr)",
+            // }}
+            gap={{ lg: 10, xlg: 2 }}
             pt={"12"}
-            width={"511px"}
+            // width={"511px"}
+            flexWrap={'wrap'}
           >
             {Array.isArray(blogs) &&
               blogs.map((blog) => (
@@ -83,7 +84,7 @@ const PostContent = () => {
                   content={blog.body}
                   img={blog.image} id={blog.id}                />
               ))}
-          </Grid>
+          </Flex>
         )}
         <AddPostModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
       </Box>
