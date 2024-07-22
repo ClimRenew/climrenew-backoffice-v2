@@ -16,6 +16,7 @@ import { FiMoreHorizontal } from "react-icons/fi";
 import AddPostModal from "../addPostModal";
 import { useAppDispatch } from "@/redux/store";
 import { deletePost } from "@/redux/features/allBlogs";
+import UpdatePosts from "../updatePostModal";
 
 interface PostCardProps {
   id: string;
@@ -107,7 +108,7 @@ const PostCard: React.FC<PostCardProps> = ({ id, name, content, img }) => {
         >
           {content}
         </Text>
-        <AddPostModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
+        <UpdatePosts isOpen={isOpen} onClose={onClose} onOpen={onOpen} id={id}/>
       </Box>
     </>
   );

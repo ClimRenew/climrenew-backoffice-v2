@@ -49,7 +49,7 @@ const SignIn = () => {
             title: "Login failed",
             description: response.message,
             status: "error",
-            duration: 9000,
+            duration: 5000,
             isClosable: true,
             position: "top-right",
           });

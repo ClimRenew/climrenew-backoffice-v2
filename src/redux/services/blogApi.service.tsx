@@ -47,3 +47,11 @@ export async function deleteBlog(id: string): Promise<BlogResponse> {
     method: 'POST',
   });
 }
+
+export async function updateBlog(id: string, formData: FormData): Promise<BlogResponse> {
+  const url = `https://v2.climrenew.com/api/v2/admin/blog/edit/${id}`;
+  return await apiRequest<BlogResponse>(url, {
+    method: 'POST', 
+    body: formData,
+  });
+}
