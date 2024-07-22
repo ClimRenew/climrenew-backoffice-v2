@@ -10,26 +10,57 @@ import {
   Text,
   Flex,
   useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
-import { FiMoreHorizontal, FiMoreVertical } from "react-icons/fi";
+import { FiMoreHorizontal } from "react-icons/fi";
 import AddPostModal from "../addPostModal";
+import { useAppDispatch } from "@/redux/store";
+import { deletePost } from "@/redux/features/allBlogs";
 
 interface PostCardProps {
-    name: string;
-    content: string;
-    img:string;
-  }
+  id: string;
+  name: string;
+  content: string;
+  img: string;
+}
 
-const PostCard :React.FC<PostCardProps>= ({ name, content,img,}) => {
+const PostCard: React.FC<PostCardProps> = ({ id, name, content, img }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-    return (
-        <>
-         <Box
+  const dispatch = useAppDispatch();
+  const toast = useToast();
+
+  const handleDelete = async () => {
+    try {
+      await dispatch(deletePost(id)).unwrap();
+      toast({
+        title: "Blog deleted.",
+        description: "Your blog has been deleted successfully.",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+        position: "top-right",
+
+      });
+    } catch (error) {
+      toast({
+        title: "An error occurred.",
+        description: error as string,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "top-right",
+
+      });
+    }
+  };
+
+  return (
+    <>
+      <Box
         borderRadius="22px"
         p={4}
         width={"511px"}
-        // height={"150px"}
-        h='100%'
+        h="100%"
         bg="#FFFFFF"
       >
         <Flex justifyContent={"space-between"} alignContent={"center"}>
@@ -53,7 +84,7 @@ const PostCard :React.FC<PostCardProps>= ({ name, content,img,}) => {
               ></MenuButton>
               <MenuList>
                 <MenuItem onClick={onOpen}>Update</MenuItem>
-                <MenuItem>Delete</MenuItem>
+                <MenuItem onClick={handleDelete}>Delete</MenuItem>
               </MenuList>
             </Menu>
           </Flex>
@@ -61,11 +92,8 @@ const PostCard :React.FC<PostCardProps>= ({ name, content,img,}) => {
         <Image
           src={img}
           alt={`${name} img`}
-          // boxSize="150px"
-          // w='240px'
           objectFit="contain"
           mx="auto"
-          // mb={4}
           py={'4'}
         />
         <Text
@@ -79,11 +107,10 @@ const PostCard :React.FC<PostCardProps>= ({ name, content,img,}) => {
         >
           {content}
         </Text>
-        <AddPostModal  isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
-
-
+        <AddPostModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
       </Box>
-        </>
-    )
-}
+    </>
+  );
+};
+
 export default PostCard;

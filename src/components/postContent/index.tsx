@@ -81,8 +81,7 @@ const PostContent = () => {
                   key={blog.id}
                   name={blog.title}
                   content={blog.body}
-                  img={blog.image}
-                />
+                  img={blog.image} id={blog.id}                />
               ))}
           </Grid>
         )}

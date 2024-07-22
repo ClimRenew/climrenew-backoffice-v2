@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { Blog, fetchBlogs, createBlog } from "@/redux/services/blogApi.service";
+import { Blog, fetchBlogs, createBlog, deleteBlog } from "@/redux/services/blogApi.service";
 
 interface BlogState {
   blogs: Blog[];
@@ -51,6 +51,25 @@ export const createPost = createAsyncThunk<
   }
 );
 
+export const deletePost = createAsyncThunk<
+  string,
+  string,
+  { rejectValue: string }
+>(
+  "blogs/deletePost",
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await deleteBlog(id);
+      if (!response.status) {
+        return rejectWithValue(response.message);
+      }
+      return id;
+    } catch (error) {
+      return rejectWithValue(error instanceof Error ? error.message : "An unknown error occurred");
+    }
+  }
+);
+
 const blogSlice = createSlice({
   name: "blogs",
   initialState,
@@ -78,6 +97,18 @@ const blogSlice = createSlice({
         state.blogs.push(action.payload);
       })
       .addCase(createPost.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string;
+      })
+      .addCase(deletePost.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(deletePost.fulfilled, (state, action) => {
+        state.loading = false;
+        state.blogs = state.blogs.filter(blog => blog.id !== action.payload);
+      })
+      .addCase(deletePost.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as string;
       });

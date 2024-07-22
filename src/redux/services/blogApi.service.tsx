@@ -40,3 +40,10 @@ export async function createBlog(formData: FormData): Promise<BlogResponse> {
     body: formData,
   });
 }
+
+export async function deleteBlog(id: string): Promise<BlogResponse> {
+  const url = `https://v2.climrenew.com/api/v2/admin/blog/delete/${id}`;
+  return await apiRequest<BlogResponse>(url, {
+    method: 'POST',
+  });
+}
