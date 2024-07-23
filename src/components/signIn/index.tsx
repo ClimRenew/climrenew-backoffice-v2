@@ -170,6 +170,7 @@ const SignIn = () => {
                 color="#D50100"
                 cursor="pointer"
                 fontSize={"14px"}
+                onClick={()=> router.push('/forgot-passwords')}
                 fontWeight={"400"}
                 className="poppins"
               >
