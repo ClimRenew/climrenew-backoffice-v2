@@ -27,7 +27,6 @@ const ProfileMenu: React.FC = () => {
   const router = useRouter();
   const toast = useToast();
   const { profile, loading, error } = useAppSelector((state) => state.adminProfile);
-console.log(profile?.admin)
 
 const user = profile ? profile.admin : undefined;
 

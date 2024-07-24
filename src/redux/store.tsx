@@ -5,13 +5,15 @@ import authReducer from "@/redux/features/auth";
 import blogReducer from "@/redux/features/allBlogs";
 import adminReducer from "@/redux/features/addAdmin"
 import adminProfileReducer from "@/redux/features/adminProfile"
+import newsletterReducer from "@/redux/features/newsletter"
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
     blog: blogReducer,
     admin:adminReducer,
-    adminProfile:adminProfileReducer
+    adminProfile:adminProfileReducer,
+    newsletter: newsletterReducer,
   },
 });
 
