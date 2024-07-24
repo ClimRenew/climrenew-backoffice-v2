@@ -100,7 +100,9 @@ const ProfileMenu: React.FC = () => {
             py={"2"}
             mt={"6"}
           >
-            <Box display={"flex"} gap={"3"}>
+            <Box display={"flex"} gap={"3"}
+                onClick={()=> router.push("/dashboard")}
+                >
               <Image
                 src="/assets/dashboardIcon.png"
                 alt="icon"
@@ -124,7 +126,9 @@ const ProfileMenu: React.FC = () => {
 
             py={"2"}
           >
-            <Box display={"flex"} gap={"3"}>
+            <Box display={"flex"} gap={"3"}
+                onClick={()=> router.push("/profile")}
+                >
               <Image
                 src="/assets/profileIcon.png"
                 alt="icon"
