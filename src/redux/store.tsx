@@ -4,12 +4,14 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import authReducer from "@/redux/features/auth";
 import blogReducer from "@/redux/features/allBlogs";
 import adminReducer from "@/redux/features/addAdmin"
+import adminProfileReducer from "@/redux/features/adminProfile"
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
     blog: blogReducer,
-    admin:adminReducer
+    admin:adminReducer,
+    adminProfile:adminProfileReducer
   },
 });
 

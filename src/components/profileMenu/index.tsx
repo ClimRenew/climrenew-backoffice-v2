@@ -1,4 +1,6 @@
 "use client";
+
+import { useEffect } from "react";
 import {
   Box,
   Text,
@@ -10,17 +12,45 @@ import {
   MenuItem,
   Button,
   Avatar,
-  Icon,
   Divider,
+  useToast,
+  Spinner,
 } from "@chakra-ui/react";
-import { ChevronDownIcon, SettingsIcon } from "@chakra-ui/icons";
-import { FaSignOutAlt, FaUserAlt } from "react-icons/fa";
-import { MdDashboard } from "react-icons/md";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useAppDispatch, useAppSelector } from "@/redux/store";
+import { getAdminProfile } from "@/redux/features/adminProfile";
 
 const ProfileMenu: React.FC = () => {
+  const dispatch = useAppDispatch();
   const router = useRouter();
+  const toast = useToast();
+  const { profile, loading, error } = useAppSelector((state) => state.adminProfile);
+console.log(profile?.admin)
+
+const user = profile ? profile.admin : undefined;
+
+  useEffect(() => {
+    dispatch(getAdminProfile());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (error) {
+      toast({
+        title: "Error",
+        description: error,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+  }, [error, toast]);
+
+  if (loading) {
+    return <Spinner />;
+  }
+
   return (
     <Menu>
       <MenuButton
@@ -35,11 +65,11 @@ const ProfileMenu: React.FC = () => {
         <Flex gap={"2"}>
           <Box>
             <Image
-              src="/assets/memoji.png"
+              src={user?.photo || "/assets/memoji.png"}
               width={40}
               height={40}
               quality={100}
-              alt="img"
+              alt="Profile Image"
             />
           </Box>
           <Box
@@ -55,7 +85,7 @@ const ProfileMenu: React.FC = () => {
               color={"#303030"}
               lineHeight={"19.36px"}
             >
-              Adeniyi Tosin
+              {user?.name || "Admin Name"}
             </Text>
             <Text
               className="inter"
@@ -65,7 +95,7 @@ const ProfileMenu: React.FC = () => {
               color={"#7C7C7C"}
               lineHeight={"16.49px"}
             >
-              Admin
+              {user?.role || "Admin Role"}
             </Text>
           </Box>
         </Flex>
@@ -80,7 +110,7 @@ const ProfileMenu: React.FC = () => {
             fontWeight={"500"}
             lineHeight={"19.36px"}
           >
-            David Ayewah
+            {user?.name || "Admin Name"}
           </Text>
           <Text
             w="full"
@@ -91,25 +121,18 @@ const ProfileMenu: React.FC = () => {
             lineHeight={"16.94px"}
             py={"2"}
           >
-            david.ayewah@gmail.com
+            {user?.email || "Admin Email"}
           </Text>
           <Divider />
-          <MenuItem
-            // icon={<Icon as={MdDashboard} />}
-
-            py={"2"}
-            mt={"6"}
-          >
-            <Box display={"flex"} gap={"3"}
-                onClick={()=> router.push("/dashboard")}
-                >
+          <MenuItem py={"2"} mt={"6"} onClick={() => router.push("/dashboard")}>
+            <Box display={"flex"} gap={"3"}>
               <Image
                 src="/assets/dashboardIcon.png"
-                alt="icon"
+                alt="Dashboard Icon"
                 width={20}
                 quality={100}
                 height={20}
-              />{" "}
+              />
               <Text
                 color="#2E2E2E"
                 fontSize={"16px"}
@@ -121,21 +144,15 @@ const ProfileMenu: React.FC = () => {
               </Text>
             </Box>
           </MenuItem>
-          <MenuItem
-            // icon={<Icon as={FaUserAlt} />}
-
-            py={"2"}
-          >
-            <Box display={"flex"} gap={"3"}
-                onClick={()=> router.push("/profile")}
-                >
+          <MenuItem py={"2"} onClick={() => router.push("/profile")}>
+            <Box display={"flex"} gap={"3"}>
               <Image
                 src="/assets/profileIcon.png"
-                alt="icon"
+                alt="Profile Icon"
                 width={20}
                 quality={100}
                 height={20}
-              />{" "}
+              />
               <Text
                 color="#2E2E2E"
                 fontSize={"16px"}
@@ -148,18 +165,17 @@ const ProfileMenu: React.FC = () => {
             </Box>
           </MenuItem>
           <Button
-            // leftIcon={<FaSignOutAlt />}
             bg="#22C55E"
             lineHeight={"16.94px"}
             borderRadius={"10px"}
             my={4}
-            cursor={'pointer'}
-            onClick={()=> router.push('/')}
+            cursor={"pointer"}
+            onClick={() => router.push('/')}
           >
             <Box display={"flex"} gap={"2"}>
               <Image
                 src="/assets/signOut.png"
-                alt="icon"
+                alt="Sign Out Icon"
                 width={15}
                 quality={100}
                 height={15}

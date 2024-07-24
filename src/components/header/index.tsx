@@ -55,22 +55,7 @@ const Header: React.FC<HeaderProps> = ({ pageHeading }) => {
               quality={100}
             />
           </Button>
-          {/*  <Button
-            bg={"#F6F6F6"}
-            cursor={'pointer'}
-            display={"flex"}
-            justifyContent={"center"}
-            alignItems={"center"}
-            borderRadius={"9px"}
-          >
-            <Image
-              src="/assets/notifications.png"
-              alt="sms_icon"
-              width={20}
-              height={20}
-              quality={100}
-            />
-          </Button> */}
+        
           <Center height="50px">
             <Divider orientation="vertical" />
           </Center>
