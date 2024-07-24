@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query/react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import authReducer from "@/redux/features/signIn";
+import authReducer from "@/redux/features/auth";
 import blogReducer from "@/redux/features/allBlogs";
 
 const store = configureStore({

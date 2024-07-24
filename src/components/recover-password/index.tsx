@@ -4,23 +4,61 @@ import {
   Box,
   Flex,
   FormControl,
-  FormLabel,
   Input,
   Button,
-  Checkbox,
   Text,
   Image,
   Center,
   useToast,
   Spinner,
   InputGroup,
-  InputRightElement,
   VStack,
 } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "@/redux/store";
+import { requestVerifyCode } from "@/redux/features/auth";
 
 const RecoverPassword = () => {
-    const router = useRouter()
+  const [code, setCode] = useState("");
+  const dispatch = useAppDispatch();
+  const toast = useToast();
+  const router = useRouter();
+  const { loading, error, message, token, key } = useAppSelector((state) => state.auth);
+
+  const handleVerifyCode = () => {
+    if (token && key) {
+      dispatch(requestVerifyCode({ code, token, key })).then((result) => {
+        if (result.type === "auth/verifyCode/fulfilled") {
+          toast({
+            title: "Code verified.",
+            description: message,
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+          });
+          router.push("/reset-passwords");
+        } else if (result.type === "auth/verifyCode/rejected") {
+          toast({
+            title: "Error.",
+            description: error,
+            status: "error",
+            duration: 9000,
+            isClosable: true,
+          });
+        }
+      });
+    } else {
+      toast({
+        title: "Error.",
+        description: "Token and key are missing. Please try again.",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
+  };
+
   return (
     <>
       <Flex height="100vh">
@@ -33,19 +71,13 @@ const RecoverPassword = () => {
           <Image src="/assets/login-Image.png" alt="Graphic" objectFit="fill" />
         </Box>
         <Box
-        //   flex="1"
           display="flex"
           alignItems="center"
           justifyContent="center"
           bg="white"
-          pl={'6%'}
+          pl={"6%"}
         >
-          <VStack
-            width="80%"
-            // maxWidth="400px"
-            spacing={4}
-            //   width={{ lg: "540px", xxl: "540px", sm: "full", md: "full" }}
-          >
+          <VStack width="80%" spacing={4}>
             <Center mb="8">
               <Image src="/assets/climerenewLogo.png" alt="Logo" />
             </Center>
@@ -81,7 +113,7 @@ const RecoverPassword = () => {
                   w={{ lg: "540px", xxl: "600px", xlg: "540px", sm: "full" }}
                 >
                   <Input
-                    type="email"
+                    type="text"
                     placeholder="Input code sent to your email address"
                     h="52px"
                     borderRadius="12px"
@@ -89,10 +121,9 @@ const RecoverPassword = () => {
                     fontWeight={"400"}
                     focusBorderColor="#121313"
                     className="urbanist"
+                    value={code}
+                    onChange={(e) => setCode(e.target.value)}
                   />
-                  {/* <InputRightElement cursor="pointer">
-                    <Image src="/assets/sms.png" w="5" alt="icon" pt="2" />
-                  </InputRightElement> */}
                 </InputGroup>
               </FormControl>
               <Box
@@ -104,7 +135,6 @@ const RecoverPassword = () => {
                 <Button
                   borderRadius="12px"
                   bg={"#22C55E"}
-                  border={"none"}
                   color={"white"}
                   mt={"4"}
                   h="54px"
@@ -117,18 +147,11 @@ const RecoverPassword = () => {
                   }}
                   fontWeight="600"
                   fontSize="16px"
-                  onClick={()=> router.push('/reset-passwords')}
-                  //   onClick={handleSendRecoveryEmail}
+                  onClick={handleVerifyCode}
                   className="urbanist"
-                  //   _hover={{
-                  //     bg: isLoading ? "transparent" : "#1a202c",
-                  //   }}
-                  //   _active={{
-                  //     bg: isLoading ? "transparent" : "#171923",
-                  //   }}
-                  //   disabled={isLoading}
+                  isLoading={loading}
                 >
-                  Next
+                  {loading ? <Spinner size="sm" /> : "Next"}
                 </Button>
               </Box>
             </Flex>
@@ -138,4 +161,5 @@ const RecoverPassword = () => {
     </>
   );
 };
+
 export default RecoverPassword;

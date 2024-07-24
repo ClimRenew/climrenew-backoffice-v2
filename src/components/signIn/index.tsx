@@ -17,7 +17,7 @@ import {
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/store";
-import { authenticateUser } from "@/redux/features/signIn";
+import { authenticateUser } from "@/redux/features/auth";
 
 const SignIn = () => {
   const router = useRouter();

@@ -26,15 +26,43 @@ export interface AuthResponse {
       photo: string | null;
     };
   };
-  errors: any[];
+   errors: { [key: string]: string[] };
+
 }
 
-export interface AuthError { // Exporting AuthError
+export interface AuthError {
   status: boolean;
   message: string;
   errors: {
     [key: string]: string[];
   };
+}
+
+
+export interface ForgotPasswordResponse {
+  status: boolean;
+  message: string;
+  data: {
+    token: string;
+    key: number;
+  };
+   errors: { [key: string]: string[] };
+
+}
+export interface VerifyCodeResponse {
+  status: boolean;
+  message: string;
+  data: any;
+   errors: { [key: string]: string[] };
+
+}
+
+export interface ResetPasswordResponse {
+  status: boolean;
+  message: string;
+  data: any;
+   errors: { [key: string]: string[] };
+
 }
 
 export async function login(credentials: LoginCredentials): Promise<AuthResponse> {
@@ -50,3 +78,28 @@ export async function login(credentials: LoginCredentials): Promise<AuthResponse
 
   return response;
 }
+
+export async function forgotPassword(email: string): Promise<ForgotPasswordResponse> {
+  const url = `https://v2.climrenew.com/api/v2/admin/auth/password/forgot`;
+  return await apiRequest<ForgotPasswordResponse>(url, {
+    method: 'POST',
+    body: JSON.stringify({ email }),
+  });
+}
+
+export async function verifyCode(token: string, key: number, code: string): Promise<VerifyCodeResponse> {
+  const url = `https://v2.climrenew.com/api/v2/admin/auth/password/code/verify`;
+  return await apiRequest<VerifyCodeResponse>(url, {
+    method: 'POST',
+    body: JSON.stringify({ token, key, code }),
+  });
+}
+
+export async function resetPassword(token: string, key: number, password: string, confirmPassword: string): Promise<ResetPasswordResponse> {
+  const url = `https://v2.climrenew.com/api/v2/admin/auth/password/reset`;
+  return await apiRequest<ResetPasswordResponse>(url, {
+    method: 'POST',
+    body: JSON.stringify({ token, key, password, password_confirmation: confirmPassword }),
+  });
+}
+
