@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import ProfileForm from "../profileForm";
 import ChangeUserPassword from "../changePassword";
+import AddAdministrator from "../addAdmin";
 
 const ProfileComponent = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -51,7 +52,7 @@ const ProfileComponent = () => {
               className="inter"
               _selected={{ color: "#303030", fontWeight: "500" }}
             >
-              Add an Admin
+              Add an Administrator
             </Tab>
           </TabList>
           <TabIndicator
@@ -67,7 +68,9 @@ const ProfileComponent = () => {
             <TabPanel>
                 <ChangeUserPassword/>
             </TabPanel>
-            <TabPanel>{/* <AddAdminForm /> */}</TabPanel>
+            <TabPanel>
+              <AddAdministrator/>
+            </TabPanel>
           </TabPanels>
         </Tabs>
       </Box>
