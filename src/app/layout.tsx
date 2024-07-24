@@ -26,7 +26,7 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: "Climrenew",
     template: " %s | Climrenew",
