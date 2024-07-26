@@ -3,6 +3,11 @@ import AdminCard from "@/components/dashboardCard";
 import Header from "@/components/header";
 import DashboardLayout from "@/layouts/DasboardLayout";
 import { Box, Flex, Grid } from "@chakra-ui/react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dashboard",
+};
 
 const Dashboard = () => {
   const data = [900, 1500, 1200, 1800, 2000, 1700, 1800];

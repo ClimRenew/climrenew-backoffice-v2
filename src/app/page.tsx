@@ -1,6 +1,7 @@
 import SignIn from "@/components/signIn";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Home",
 };
 
