@@ -42,8 +42,7 @@ const AddFaqModal = ({ isOpen, onOpen, onClose }: any) => {
               </FormLabel>
               <Input
                 
-                // value={companyName}
-                // onChange={(e) => setCompanyName(e.target.value)}
+                
                 borderRadius={"8px"}
                 border="1px solid #D9D9D9"
                 className="inter"

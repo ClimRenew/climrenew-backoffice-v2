@@ -14,7 +14,7 @@ export interface AddAdminResponse {
 }
 
 export async function addAdministrator(admin: AddAdminRequest): Promise<AddAdminResponse> {
-  const url = `https://v2.climrenew.com/api/v2/admin/administration/invitation`;
+  const url = `https://climrenew.com/api/v2/admin/administration/invitation`;
   return await apiRequest<AddAdminResponse>(url, {
     method: 'POST',
     body: JSON.stringify(admin),

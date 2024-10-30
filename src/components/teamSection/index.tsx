@@ -42,7 +42,7 @@ const TeamSection:React.FC<TeamProps> = ({headingName}) => {
             </FormLabel>
             <Input
               placeholder="e.g John Doe"
-              // w={"504px"}
+           
               focusBorderColor="#22C55E"
               bg="white"
               border="1px solid #D9D9D9"
@@ -63,7 +63,7 @@ const TeamSection:React.FC<TeamProps> = ({headingName}) => {
             </FormLabel>
             <Input
               placeholder="e.g COO"
-              // w={"504px"}
+           
               bg="white"
               focusBorderColor="#22C55E"
               border="1px solid #D9D9D9"
@@ -91,7 +91,7 @@ const TeamSection:React.FC<TeamProps> = ({headingName}) => {
                 border="1px solid #D9D9D9"
                 h={"48px"}
                 borderRadius={"8px"}
-                //   width="420px"
+         
               />
               <Button
                 w={"100px"}
@@ -104,7 +104,7 @@ const TeamSection:React.FC<TeamProps> = ({headingName}) => {
                 fontSize={"16px"}
                 cursor={"pointer"}
                 borderRadius={"20px"}
-                // onClick={handleSubmit}
+            
               >
                 Browse
               </Button>
@@ -122,7 +122,7 @@ const TeamSection:React.FC<TeamProps> = ({headingName}) => {
             </FormLabel>
             <Input
               placeholder="@COO"
-              // w={"504px"}
+           
               focusBorderColor="#22C55E"
               bg="white"
               border="1px solid #D9D9D9"
@@ -146,7 +146,7 @@ const TeamSection:React.FC<TeamProps> = ({headingName}) => {
             </FormLabel>
             <Input
               placeholder="e.g John Doe"
-              // w={"504px"}
+           
               focusBorderColor="#22C55E"
               bg="white"
               border="1px solid #D9D9D9"
@@ -167,7 +167,7 @@ const TeamSection:React.FC<TeamProps> = ({headingName}) => {
             </FormLabel>
             <Input
               placeholder="e.g COO"
-              // w={"504px"}
+           
               bg="white"
               focusBorderColor="#22C55E"
               border="1px solid #D9D9D9"
@@ -189,7 +189,7 @@ const TeamSection:React.FC<TeamProps> = ({headingName}) => {
             </FormLabel>
             <Input
               placeholder="e.g John Doe"
-              // w={"504px"}
+           
               focusBorderColor="#22C55E"
               bg="white"
               border="1px solid #D9D9D9"
@@ -210,7 +210,7 @@ const TeamSection:React.FC<TeamProps> = ({headingName}) => {
             </FormLabel>
             <Input
               placeholder="e.g COO"
-              // w={"504px"}
+           
               bg="white"
               focusBorderColor="#22C55E"
               border="1px solid #D9D9D9"

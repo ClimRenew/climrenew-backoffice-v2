@@ -20,19 +20,19 @@ import { useAppDispatch, useAppSelector } from "@/redux/store";
 import { requestVerifyCode } from "@/redux/features/auth";
 
 const RecoverPassword = () => {
-
   const [code, setCode] = useState("");
 
   const dispatch = useAppDispatch();
-  
+
   const toast = useToast();
-  
+
   const router = useRouter();
-  
-  const { loading, error, message, token, key } = useAppSelector((state) => state.auth);
+
+  const { loading, error, message, token, key } = useAppSelector(
+    (state) => state.auth
+  );
 
   const handleVerifyCode = () => {
-
     if (token && key) {
       dispatch(requestVerifyCode({ code, token, key })).then((result) => {
         if (result.type === "auth/verifyCode/fulfilled") {

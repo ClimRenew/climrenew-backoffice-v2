@@ -42,7 +42,6 @@ const AchievementSection: React.FC<Props> = ({ headingNumber }) => {
             </FormLabel>
             <Input
               placeholder="Projects"
-              // w={"504px"}
               focusBorderColor="#22C55E"
               bg="white"
               border="1px solid #D9D9D9"
@@ -63,7 +62,6 @@ const AchievementSection: React.FC<Props> = ({ headingNumber }) => {
             </FormLabel>
             <Input
               placeholder="10"
-              // w={"504px"}
               bg="white"
               focusBorderColor="#22C55E"
               border="1px solid #D9D9D9"

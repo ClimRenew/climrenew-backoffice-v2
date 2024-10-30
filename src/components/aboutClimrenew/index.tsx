@@ -43,7 +43,6 @@ const AboutCimrenew: React.FC<AboutProps> = ({ headingName }) => {
             </FormLabel>
             <Input
               placeholder="Empowering Sustainability, Connecting Futures"
-              // w={"504px"}
               focusBorderColor="#22C55E"
               bg="white"
               border="1px solid #D9D9D9"
@@ -69,7 +68,6 @@ const AboutCimrenew: React.FC<AboutProps> = ({ headingName }) => {
                 border="1px solid #D9D9D9"
                 h={"48px"}
                 borderRadius={"8px"}
-                //   width="420px"
               />
               <Button
                 w={"100px"}
@@ -82,7 +80,6 @@ const AboutCimrenew: React.FC<AboutProps> = ({ headingName }) => {
                 fontSize={"16px"}
                 cursor={"pointer"}
                 borderRadius={"20px"}
-                // onClick={handleSubmit}
               >
                 Browse
               </Button>

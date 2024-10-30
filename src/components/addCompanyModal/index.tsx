@@ -18,7 +18,6 @@ import {
 import { useState } from "react";
 
 const AddCompanyModal = ({ isOpen, onOpen, onClose }: any) => {
-  // const { isOpen, onOpen, onClose } = useDisclosure();
   const [companyName, setCompanyName] = useState("");
   const [logo, setLogo] = useState(null);
 
@@ -27,7 +26,6 @@ const AddCompanyModal = ({ isOpen, onOpen, onClose }: any) => {
   };
 
   const handleSubmit = () => {
-    // handle form submission
     onClose();
   };
 
@@ -73,7 +71,6 @@ const AddCompanyModal = ({ isOpen, onOpen, onClose }: any) => {
                 <Input
                   borderRadius={"8px"}
                   className="inter"
-                  // onChange={handleFileChange}
                   border='1px solid #D9D9D9'
                   width="340px"
                 />
@@ -88,7 +85,6 @@ const AddCompanyModal = ({ isOpen, onOpen, onClose }: any) => {
                 fontSize={"16px"}
                 cursor={'pointer'}
                 borderRadius={"20px"}
-                // onClick={handleSubmit}
               >
                 Browse
               </Button>

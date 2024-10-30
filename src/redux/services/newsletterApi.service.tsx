@@ -15,7 +15,7 @@ interface BroadcastNewsletterResponse {
 }
 
 export async function broadcastNewsletter(data: BroadcastNewsletterData): Promise<BroadcastNewsletterResponse> {
-  const url = `https://v2.climrenew.com/api/v2/admin/newsletter/broadcast`;
+  const url = `https://climrenew.com/api/v2/admin/newsletter/broadcast`;
   return await apiRequest<BroadcastNewsletterResponse>(url, {
     method: 'POST',
     body: JSON.stringify(data),

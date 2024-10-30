@@ -1,5 +1,4 @@
 import { extendTheme } from "@chakra-ui/react";
-// import { Button } from "../button";
 
 export const Theme = extendTheme({
   breakpoints: {
@@ -46,7 +45,6 @@ export const Theme = extendTheme({
   },
   styles: {},
   components: {
-    // Button,
   },
   global: {
     '.chakra-form label.required::after': {

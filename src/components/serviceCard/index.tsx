@@ -84,11 +84,9 @@ return (
         <Image
           src={img}
           alt={`${name} img`}
-          // boxSize="150px"
-          // w='240px'
           objectFit="contain"
           mx="auto"
-          // mb={4}
+          
         />
         <Text
           fontWeight="500"

@@ -28,7 +28,6 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ name, content, img }) => {
       <Box
         borderRadius="22px"
         p={4}
-        // maxW="319px"
         w="319px"
         bg="#FFFFFF"
         boxSizing="border-box"
@@ -85,11 +84,10 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ name, content, img }) => {
           <Image
             src={img}
             alt={`${name} img`}
-            // boxSize="150px"
-            // w='240px'
+          
             objectFit="contain"
             mx="auto"
-            // mb={4}
+            
           />
           <Text
             fontWeight="400"

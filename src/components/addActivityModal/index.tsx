@@ -45,8 +45,7 @@ const AddActivityModal = ({ isOpen, onOpen, onClose }: any) => {
               </FormLabel>
               <Input
                 placeholder="e.g Climrenew"
-                // value={companyName}
-                // onChange={(e) => setCompanyName(e.target.value)}
+           
                 borderRadius={"8px"}
                 border="1px solid #D9D9D9"
                 className="inter"
@@ -69,7 +68,7 @@ const AddActivityModal = ({ isOpen, onOpen, onClose }: any) => {
                 <Input
                   borderRadius={"8px"}
                   className="inter"
-                  // onChange={handleFileChange}
+            
                   border="1px solid #D9D9D9"
                   width="340px"
                 />
@@ -84,7 +83,7 @@ const AddActivityModal = ({ isOpen, onOpen, onClose }: any) => {
                   fontSize={"16px"}
                   cursor={"pointer"}
                   borderRadius={"20px"}
-                  // onClick={handleSubmit}
+            
                 >
                   Browse
                 </Button>

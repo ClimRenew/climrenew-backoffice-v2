@@ -14,7 +14,7 @@ export interface AdminProfileResponse {
 }
 
 export async function fetchAdminProfile(): Promise<AdminProfileResponse> {
-  const url = `https://v2.climrenew.com/api/v2/admin/profile/account`;
+  const url = `https://climrenew.com/api/v2/admin/profile/account`;
   return await apiRequest<AdminProfileResponse>(url, {
     method: 'POST',
   });

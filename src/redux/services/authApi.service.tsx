@@ -66,7 +66,7 @@ export interface ResetPasswordResponse {
 }
 
 export async function login(credentials: LoginCredentials): Promise<AuthResponse> {
-  const url = `https://v2.climrenew.com/api/v2/admin/auth/login`;
+  const url = `https://climrenew.com/api/v2/admin/auth/login`;
   const response = await apiRequest<AuthResponse>(url, {
     method: 'POST',
     body: JSON.stringify(credentials),
@@ -75,12 +75,11 @@ export async function login(credentials: LoginCredentials): Promise<AuthResponse
   if (response.status) {
     localStorage.setItem('token', response.data.token); // Ensure token is stored correctly
   }
-
   return response;
 }
 
 export async function forgotPassword(email: string): Promise<ForgotPasswordResponse> {
-  const url = `https://v2.climrenew.com/api/v2/admin/auth/password/forgot`;
+  const url = `https://climrenew.com/api/v2/admin/auth/password/forgot`;
   return await apiRequest<ForgotPasswordResponse>(url, {
     method: 'POST',
     body: JSON.stringify({ email }),
@@ -88,7 +87,7 @@ export async function forgotPassword(email: string): Promise<ForgotPasswordRespo
 }
 
 export async function verifyCode(token: string, key: number, code: string): Promise<VerifyCodeResponse> {
-  const url = `https://v2.climrenew.com/api/v2/admin/auth/password/code/verify`;
+  const url = `https://climrenew.com/api/v2/admin/auth/password/code/verify`;
   return await apiRequest<VerifyCodeResponse>(url, {
     method: 'POST',
     body: JSON.stringify({ token, key, code }),
@@ -96,7 +95,7 @@ export async function verifyCode(token: string, key: number, code: string): Prom
 }
 
 export async function resetPassword(token: string, key: number, password: string, confirmPassword: string): Promise<ResetPasswordResponse> {
-  const url = `https://v2.climrenew.com/api/v2/admin/auth/password/reset`;
+  const url = `https://climrenew.com/api/v2/admin/auth/password/reset`;
   return await apiRequest<ResetPasswordResponse>(url, {
     method: 'POST',
     body: JSON.stringify({ token, key, password, password_confirmation: confirmPassword }),

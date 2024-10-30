@@ -4,21 +4,10 @@ import {
   Button,
   Flex,
   Text,
-  VStack,
-  Grid,
-  GridItem,
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
   Modal,
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   useDisclosure,
@@ -81,7 +70,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
               ? { lg: "120px", xlg: "150px", xxl: "250px" }
               : { lg: "280px", xl: "300px", xlg: "500px", xxl: "600px" }
           }
-          // px="7px"
+         
           bg="
           #22C55E"
           pt="30px"
@@ -116,8 +105,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             direction={"column"}
             gap="44px"
             pt={'12'}
-            // bg='red'
-            // h="600px"
+           
       width={'full'}
 
             // overflowY={"scroll"}
@@ -139,39 +127,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             ))}
            
            
-            {/* <Flex
-              cursor={"pointer"}
-              gap="14px"
-              borderRadius={"5px"}
-              onClick={onOpen}
-              position={"fixed"}
-              bottom="0"
-              fontWeight="500"
-              px={isCollapsed ? "36px" : "18px"}
-              // pt={"8"}
-              py={"20px"}
-              alignItems={"center"}
-              transition="0.5s ease"
-              // _hover={{ bg: "rgba(153, 178, 198, 0.2)" }}
-              fontSize={"16px"}
-            >
-              <Image
-                src="/assets/logout.png"
-                alt="recon logo"
-                width={25}
-                height={25}
-                quality={100}
-              />
-              <Text
-                className="inter"
-                display={isCollapsed ? "none" : "flex"}
-                fontWeight={"400"}
-                fontSize={"16px"}
-                color={"#8C8CA1"}
-              >
-                LogOut
-              </Text>
-            </Flex> */}
+           
           </Flex>
 
           {/* LOGOUT CONDITION */}
@@ -196,7 +152,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                   className="inter"
                   fontWeight={"600"}
                   lineHeight={"24px"}
-                  // py={"2"}
+            
                   textAlign={"center"}
                 >
                   Are you sure you want to log out <br></br>of your account?

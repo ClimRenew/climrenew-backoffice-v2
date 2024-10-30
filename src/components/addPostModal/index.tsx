@@ -108,7 +108,7 @@ const AddPostModal = ({ isOpen, onOpen, onClose }: any) => {
                 pt={'1'}
                 className="inter"
                 border="1px solid #D9D9D9"
-                // width="340px"
+               
               />
             </Flex>
           </FormControl>

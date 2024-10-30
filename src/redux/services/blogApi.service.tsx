@@ -27,14 +27,14 @@ export interface BlogResponse {
 }
 
 export async function fetchBlogs(): Promise<BlogResponse> {
-  const url = `https://v2.climrenew.com/api/v2/admin/blog/list`;
+  const url = `https://climrenew.com/api/v2/admin/blog/list`;
   return await apiRequest<BlogResponse>(url, {
     method: 'GET',
   });
 }
 
 export async function createBlog(formData: FormData): Promise<BlogResponse> {
-  const url = `https://v2.climrenew.com/api/v2/admin/blog/create`;
+  const url = `https://climrenew.com/api/v2/admin/blog/create`;
   return await apiRequest<BlogResponse>(url, {
     method: 'POST',
     body: formData,
@@ -42,14 +42,14 @@ export async function createBlog(formData: FormData): Promise<BlogResponse> {
 }
 
 export async function deleteBlog(id: string): Promise<BlogResponse> {
-  const url = `https://v2.climrenew.com/api/v2/admin/blog/delete/${id}`;
+  const url = `https://climrenew.com/api/v2/admin/blog/delete/${id}`;
   return await apiRequest<BlogResponse>(url, {
     method: 'POST',
   });
 }
 
 export async function updateBlog(id: string, formData: FormData): Promise<BlogResponse> {
-  const url = `https://v2.climrenew.com/api/v2/admin/blog/edit/${id}`;
+  const url = `https://climrenew.com/api/v2/admin/blog/edit/${id}`;
   return await apiRequest<BlogResponse>(url, {
     method: 'POST', 
     body: formData,
