@@ -18,8 +18,11 @@ import {
 import { useState } from "react";
 import { useAppDispatch } from "@/redux/store";
 import { createPost } from "@/redux/features/allBlogs";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import dynamic from 'next/dynamic';
+
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+import 'react-quill/dist/quill.snow.css';
+
 
 const AddPostModal = ({ isOpen, onOpen, onClose }: any) => {
   const dispatch = useAppDispatch();
