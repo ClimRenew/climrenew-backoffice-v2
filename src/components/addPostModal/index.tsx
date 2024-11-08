@@ -138,9 +138,11 @@ const AddPostModal = ({ isOpen, onOpen, onClose }: any) => {
               modules={{
                 toolbar: [
                   [{ header: [1, 2, 3, false] }],
+                  [{ 'align': [] }],       
                   ["bold", "italic", "underline", "strike"],
                   [{ list: "ordered" }, { list: "bullet" }],
-                  ["link", "image"],
+                  ["link", "image", 'video'],
+                  [{ 'color': [] }, { 'background': [] }],       
                   ["clean"],
                 ],
               }}
