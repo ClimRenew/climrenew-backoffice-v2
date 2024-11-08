@@ -1,3 +1,4 @@
+'use client'
 import {
   Button,
   FormControl,
@@ -17,7 +18,8 @@ import {
 import { useState } from "react";
 import { useAppDispatch } from "@/redux/store";
 import { updatePost } from "@/redux/features/allBlogs";
-import ReactQuill from "react-quill";
+import dynamic from "next/dynamic";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
 
 const UpdatePosts = ({
