@@ -111,7 +111,7 @@ const PostCard: React.FC<PostCardProps> = ({ id, name, content, img }) => {
           mx="auto"
           py={"4"}
         />
-        <Text
+        <Box
           fontWeight="500"
           textAlign="start"
           fontSize="18px"
@@ -119,9 +119,8 @@ const PostCard: React.FC<PostCardProps> = ({ id, name, content, img }) => {
           className="urbanist"
           color={"#3B3B3B"}
           pt={"6"}
-        >
-          {content}
-        </Text>
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
         <UpdatePosts
           isOpen={isOpen}
           onClose={onClose}

@@ -17,6 +17,8 @@ import {
 import { useState } from "react";
 import { useAppDispatch } from "@/redux/store";
 import { createPost } from "@/redux/features/allBlogs";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 const AddPostModal = ({ isOpen, onOpen, onClose }: any) => {
   const dispatch = useAppDispatch();
@@ -49,7 +51,6 @@ const AddPostModal = ({ isOpen, onOpen, onClose }: any) => {
         duration: 9000,
         isClosable: true,
         position: "top-right",
-
       });
       onClose();
     } catch (error) {
@@ -60,7 +61,6 @@ const AddPostModal = ({ isOpen, onOpen, onClose }: any) => {
         duration: 5000,
         isClosable: true,
         position: "top-right",
-        
       });
     }
   };
@@ -68,7 +68,7 @@ const AddPostModal = ({ isOpen, onOpen, onClose }: any) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} size={"xl"}>
       <ModalOverlay />
-      <ModalContent mt={"6%"} display={'flex'} justifyContent={'center'}>
+      <ModalContent mt={"6%"} display={"flex"} justifyContent={"center"}>
         <ModalHeader
           className="montserrat"
           color={"#232323"}
@@ -81,7 +81,12 @@ const AddPostModal = ({ isOpen, onOpen, onClose }: any) => {
         <ModalCloseButton />
         <ModalBody>
           <FormControl mb={4}>
-            <FormLabel className="inter" fontSize="16px" fontWeight={"500"} lineHeight={"30px"}>
+            <FormLabel
+              className="inter"
+              fontSize="16px"
+              fontWeight={"500"}
+              lineHeight={"30px"}
+            >
               Header
             </FormLabel>
             <Input
@@ -94,7 +99,12 @@ const AddPostModal = ({ isOpen, onOpen, onClose }: any) => {
             />
           </FormControl>
           <FormControl>
-            <FormLabel className="inter" fontSize="16px" fontWeight={"500"} lineHeight={"30px"}>
+            <FormLabel
+              className="inter"
+              fontSize="16px"
+              fontWeight={"500"}
+              lineHeight={"30px"}
+            >
               Image
             </FormLabel>
             <Flex justifyContent={"space-between"} alignItems={"center"} mb={4}>
@@ -103,29 +113,57 @@ const AddPostModal = ({ isOpen, onOpen, onClose }: any) => {
                 accept="image/*"
                 onChange={handleFileChange}
                 borderRadius={"8px"}
-                fontSize={'14px'}
-                px={'1'}
-                pt={'1'}
+                fontSize={"14px"}
+                px={"1"}
+                pt={"1"}
                 className="inter"
                 border="1px solid #D9D9D9"
-               
               />
             </Flex>
           </FormControl>
           <FormControl mb={4}>
-            <FormLabel className="inter" fontSize="16px" fontWeight={"500"} lineHeight={"30px"}>
+            <FormLabel
+              className="inter"
+              fontSize="16px"
+              fontWeight={"500"}
+              lineHeight={"30px"}
+            >
               Description
             </FormLabel>
-            <Textarea
+            <ReactQuill
+              theme="snow"
               value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              borderRadius={"8px"}
-              border="1px solid #D9D9D9"
-              className="inter"
+              onChange={setDescription}
+              placeholder="Write your blog description here..."
+              modules={{
+                toolbar: [
+                  [{ header: [1, 2, 3, false] }],
+                  ["bold", "italic", "underline", "strike"],
+                  [{ list: "ordered" }, { list: "bullet" }],
+                  ["link", "image"],
+                  ["clean"],
+                ],
+              }}
+              formats={[
+                "header",
+                "bold",
+                "italic",
+                "underline",
+                "strike",
+                "list",
+                "bullet",
+                "link",
+                "image",
+              ]}
+              style={{ height: "200px", marginBottom: "50px" }}
             />
           </FormControl>
         </ModalBody>
-        <ModalFooter display={"flex"} alignItems={"center"} justifyContent={"center"}>
+        <ModalFooter
+          display={"flex"}
+          alignItems={"center"}
+          justifyContent={"center"}
+        >
           <Button
             w={"243px"}
             h="48px"
