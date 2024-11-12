@@ -15,7 +15,7 @@ import {
   Textarea,
   useToast,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch } from "@/redux/store";
 import { updatePost } from "@/redux/features/allBlogs";
 import dynamic from 'next/dynamic';
@@ -37,6 +37,14 @@ const UpdatePosts = ({
   const [title, setTitle] = useState(initialTitle);
   const [body, setBody] = useState(initialBody);
   const [image, setImage] = useState<File | null>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      setTitle(initialTitle || "");
+      setBody(initialBody || "");
+      setImage(null);
+    }
+  }, [isOpen, initialTitle, initialBody]);
 
   const handleUpdate = async () => {
     const formData = new FormData();

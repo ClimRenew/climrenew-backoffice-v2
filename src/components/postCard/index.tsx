@@ -126,6 +126,9 @@ const PostCard: React.FC<PostCardProps> = ({ id, name, content, img }) => {
           onClose={onClose}
           onOpen={onOpen}
           id={id}
+          initialTitle={name}
+  initialBody={content}
+  initialImage={img}
         />
       </Box>
     </>
